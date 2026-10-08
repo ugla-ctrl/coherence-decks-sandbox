@@ -455,7 +455,7 @@ ul li::before{content:"·";color:var(--gold);margin-right:10px}
 </div>
 <div class="nav" id="nav"></div>
 <div class="hint">← → or click to navigate</div>
-<div id="gate">
+<div id="gate" class="hide">
   <div class="gcard">
     <img class="gmark" src="media/logo-symbol.png" alt="Coherence" />
     <div class="gname">Coherence</div>
@@ -483,65 +483,7 @@ ul li::before{content:"·";color:var(--gold);margin-right:10px}
   deck.addEventListener('click',e=>{if(locked())return;go(e.clientX>deck.getBoundingClientRect().left+deck.offsetWidth*0.3?i+1:i-1);});
   const h=parseInt(location.hash.slice(1));if(h>0&&h<=slides.length)go(h-1);
 })();
-/* email gate: name + email into Supabase (australasia-eclipse-2028 project, insert-only coherence_deck_leads table), same pattern as the Coherence info deck */
-(function(){
-  const KEY='coherence_partner_access';
-  const SUPA_URL='https://qmxhsendoepqeyeolzil.supabase.co';
-  const SUPA_KEY='sb_publishable_qU4HH0buJWQW3_RJk3QlYg_5r84ZfdP';
-  const gate=document.getElementById('gate');
-  let seen=false;try{seen=!!localStorage.getItem(KEY);}catch(_){}
-  const EMAIL_KEY=KEY+'_email';
-
-  /* View-duration tracking: active-tab time per visit, recorded through the
-     deck_view_beat() database function into coherence_deck_views (separate
-     from the lead-capture gate, so it never touches the leads data). Email is
-     attached when known -- just submitted, or remembered from this browser --
-     otherwise the visit is tracked anonymously. Uses fetch(keepalive) rather
-     than sendBeacon on unload because Supabase's REST API needs the
-     apikey/Authorization headers, which sendBeacon can't send. */
-  function trackViews(email){
-    try{
-      const SID=(crypto.randomUUID?crypto.randomUUID():(Date.now()+'-'+Math.random().toString(16).slice(2)));
-      let activeMs=0, lastTick=(document.visibilityState==='visible'?Date.now():null), lastSent=-1;
-      function tick(){if(lastTick!==null){activeMs+=Math.min(Date.now()-lastTick,60000);lastTick=Date.now();}}
-      document.addEventListener('visibilitychange',()=>{tick();lastTick=document.visibilityState==='visible'?Date.now():null;if(document.visibilityState==='hidden')send(true);});
-      function send(keepalive){
-        tick();
-        const seconds=Math.round(activeMs/1000);
-        if(seconds<3||seconds===lastSent)return;
-        lastSent=seconds;
-        fetch(SUPA_URL+'/rest/v1/rpc/deck_view_beat',{
-          method:'POST', keepalive:!!keepalive,
-          headers:{'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY,'Content-Type':'application/json'},
-          body:JSON.stringify({p_deck:'coherence_partner',p_session_id:SID,p_email:email||null,p_seconds:seconds})
-        }).catch(()=>{});
-      }
-      setInterval(()=>send(false),20000);
-      addEventListener('pagehide',()=>send(true));
-    }catch(_){}
-  }
-  let saved=null;try{saved=localStorage.getItem(EMAIL_KEY);}catch(_){}
-  /* unlocked before emails were saved: ask once, so every recorded view has an email address */
-  const returning=seen&&!saved;
-  if(seen&&saved){gate.classList.add('hide');trackViews(saved);return;}
-  const form=document.getElementById('gateForm'),nameEl=document.getElementById('gateName'),email=document.getElementById('gateEmail'),err=document.getElementById('gateErr'),btn=document.getElementById('gateBtn');
-  const re=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if(returning){const h=gate.querySelector('h2'),p=gate.querySelector('p');if(h)h.textContent='Welcome back.';if(p)p.textContent='Please confirm your email to continue.';nameEl.style.display='none';btn.textContent='Continue';}
-  var opened=false;
-  function unlock(viewerEmail){if(opened)return;opened=true;try{localStorage.setItem(KEY,'1');if(viewerEmail)localStorage.setItem(EMAIL_KEY,viewerEmail);}catch(_){}gate.classList.add('hide');trackViews(viewerEmail);}
-  form.addEventListener('submit',e=>{
-    e.preventDefault();
-    const v=email.value.trim(),n=nameEl.value.trim();
-    if(!re.test(v)){err.textContent='Please enter a valid email address.';email.focus();return;}
-    err.textContent='';btn.disabled=true;btn.textContent='Opening…';
-    if(returning){unlock(v);return;}
-    setTimeout(()=>unlock(v),4000);   /* a stalled request must not trap the viewer */
-    fetch(SUPA_URL+'/rest/v1/coherence_deck_leads',{method:'POST',headers:{'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY,'Content-Type':'application/json','Prefer':'return=minimal'},
-      body:JSON.stringify({email:v,name:n||null,source:'coherence-partner-gate',referrer:document.referrer||null,user_agent:navigator.userAgent})}).then(()=>unlock(v)).catch(()=>unlock(v));
-  });
-  email.focus();
-})();
-
+/* SANDBOX COPY: the production email gate and view tracking were removed here, so opening this copy never creates leads or views in the live reports. The gate is hidden from the start. See README.md for how to port changes back. */
 </script>
 </body>
 </html>
