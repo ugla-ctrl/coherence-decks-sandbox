@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Coherence deck sandbox</title>
+<style>
+  :root{--bg:#f6f1e9;--ink:#201712;--dim:#6b5d52;--card:#fffdf9;--line:#e3d9cb;--accent:#8a4b2a;--ok:#2f6b4f}
+  @media (prefers-color-scheme: dark){:root{--bg:#171009;--ink:#f3ece2;--dim:#b7a999;--card:#211812;--line:#3a2d23;--accent:#e0a074;--ok:#7fc8a0}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.5}
+  main{max-width:720px;margin:0 auto;padding:48px 16px 64px}
+  .tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+  h1{font-size:1.9rem;line-height:1.15;margin:0 0 8px}
+  .sub{color:var(--dim);margin:0 0 28px}
+  .cards{display:grid;gap:14px}
+  a.card{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;transition:border-color .15s,transform .15s}
+  a.card:hover,a.card:focus-visible{border-color:var(--accent);transform:translateY(-1px)}
+  .card h2{margin:0 0 4px;font-size:1.1rem}
+  .card p{margin:0;color:var(--dim);font-size:.92rem}
+  .pill{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:2px 9px;margin-left:8px;vertical-align:middle}
+  .sandbox{background:rgba(138,75,42,.12);color:var(--accent)}
+  .live{background:rgba(47,107,79,.14);color:var(--ok)}
+  .live-links{margin:26px 0 0;font-size:.9rem;color:var(--dim)}
+  .live-links a{color:var(--accent)}
+  .status{margin-top:30px;padding:14px 16px;border:1px dashed var(--line);border-radius:10px;font-size:.88rem;color:var(--dim)}
+  .status strong{color:var(--ink)}
+</style>
+</head>
+<body>
+<main>
+  <span class="tag">Work in progress</span>
+  <h1>Coherence deck sandbox</h1>
+  <p class="sub">Working copies for review. These are not the live decks, and nothing here is public-facing yet.</p>
+
+  <div class="cards">
+    <a class="card" href="investment/">
+      <h2>Investment deck <span class="pill sandbox">Sandbox</span></h2>
+      <p>17 slides. Being restyled to match the Info deck.</p>
+    </a>
+    <a class="card" href="partnerships/">
+      <h2>Partnerships deck <span class="pill sandbox">Sandbox</span></h2>
+      <p>16 slides. Being restyled to match the Info deck.</p>
+    </a>
+    <a class="card" href="https://info.coherenceatx.com" rel="noopener">
+      <h2>Info deck <span class="pill live">Live reference</span></h2>
+      <p>The look the other two should match. Opens the live deck (asks for an email).</p>
+    </a>
+  </div>
+
+  <p class="live-links">Compare with the live versions:
+    <a href="https://investment.coherenceatx.com" rel="noopener">Investment</a> and
+    <a href="https://partnerships.coherenceatx.com" rel="noopener">Partnerships</a>.</p>
+
+  <div class="status">
+    <strong>Status:</strong> baseline copies of the live decks (taken Oct 8, 2026). Restyling comes next, and these pages will change while we work.
+    Opening the sandbox decks does not record anything: there is no email gate and no tracking, so reviews never show up in the daily report.
+  </div>
+</main>
+</body>
+</html>
