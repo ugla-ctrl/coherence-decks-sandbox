@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coherence Festival · Partnership Deck (draft)</title>
+<meta name="description" content="Coherence Festival, March 19-22, 2027, Carson Creek Ranch, Austin. An IMXP x Unify production. Partnership deck." />
+<meta name="robots" content="noindex, nofollow" />
+<meta property="og:title" content="Coherence Festival · Partnership Deck" />
+<meta property="og:description" content="Coherence Festival, March 19-22, 2027, Carson Creek Ranch, Austin. An IMXP x Unify production. Partnership deck." />
+<meta property="og:url" content="https://ugla-ctrl.github.io/coherence-partnership-deck/" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://ugla-ctrl.github.io/coherence-partnership-deck/media/og-thumb.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Coherence Festival · Partnership Deck" />
+<meta name="twitter:description" content="Coherence Festival, March 19-22, 2027, Carson Creek Ranch, Austin. An IMXP x Unify production. Partnership deck." />
+<meta name="twitter:image" content="https://ugla-ctrl.github.io/coherence-partnership-deck/media/og-thumb.jpg" />
+<meta name="theme-color" content="#15100C" />
+<link rel="icon" href="media/logo-symbol.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1E1711; --bg:#15100C; --cream:#F4EEE4; --cream2:#EBE2D3; --gold:#B8893B; --gold2:#D9B26B; --mute:#7A6A57; --line:#DCD2C2;
+  --g1:linear-gradient(135deg,#F1E3CF 0%,#E7D3B8 100%);
+  --g2:linear-gradient(135deg,#E9DCC6 0%,#D8C7B0 100%);
+  --g3:linear-gradient(135deg,#D9C2A0 0%,#C9A97B 100%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:20px}
+.deck{position:relative;width:min(96vw,1200px);aspect-ratio:16/9;border-radius:14px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+.slide{position:absolute;inset:0;padding:56px 64px;background:var(--cream);opacity:0;transition:opacity .45s ease;display:flex;flex-direction:column}
+.slide.active{opacity:1;z-index:2}
+.slide.dark{background:radial-gradient(1200px 600px at 30% 20%,#3B2A1C 0%,#1B140E 55%,#0F0B08 100%);color:#F4EEE4}
+.slide.photo{background:linear-gradient(180deg,rgba(20,14,9,var(--o1,.35)),rgba(20,14,9,var(--o2,.75))),var(--ph,radial-gradient(900px 500px at 70% 30%,#6B4A2A,#2A1C12 60%,#120D09));background-size:cover;background-position:center;color:#F7F1E7}
+.brand{position:absolute;top:26px;left:64px;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+.dark .brand,.photo .brand{color:var(--gold2)}
+.foot{position:absolute;bottom:24px;left:64px;right:64px;display:flex;justify-content:space-between;font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute)}
+.dark .foot,.photo .foot{color:rgba(244,238,228,.55)}
+.kicker{font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+h1,h2,h3,.serif{font-family:"Playfair Display",Georgia,serif;font-weight:400;letter-spacing:-.005em}
+h1{font-size:76px;letter-spacing:.22em;text-transform:uppercase;line-height:1;text-align:center}
+h2{font-size:38px;line-height:1.15;max-width:22ch}
+h2 em{font-style:italic;color:var(--gold)}
+.dark h2 em,.photo h2 em{color:var(--gold2)}
+p{font-size:14.5px;line-height:1.6;max-width:62ch;color:#3A2F25}
+.dark p,.photo p{color:rgba(247,241,231,.9)}
+.small{font-size:11.5px;color:var(--mute);line-height:1.55;max-width:70ch}
+.dark .small,.photo .small{color:rgba(247,241,231,.6)}
+.cols{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;flex:1}
+.center{flex:1;display:flex;flex-direction:column;justify-content:center}
+.img{border-radius:10px;min-height:260px;height:100%;background:var(--g3);display:flex;align-items:flex-end;padding:14px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(30,23,17,.55)}
+.cards{display:grid;gap:14px;margin-top:22px}
+.c3{grid-template-columns:repeat(3,1fr)} .c4{grid-template-columns:repeat(4,1fr)} .c5{grid-template-columns:repeat(5,1fr)}
+.card{border-radius:10px;padding:18px 18px 16px;background:var(--g1);border:1px solid rgba(184,137,59,.18)}
+.card:nth-child(2){background:var(--g2)} .card:nth-child(3){background:var(--g3)} .card:nth-child(4){background:var(--g1)} .card:nth-child(5){background:var(--g2)}
+.card .n{font-family:"Playfair Display",serif;font-size:30px;line-height:1;margin-bottom:6px}
+.card .l{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:#5E4E3C}
+.card .s{font-size:11px;color:#5E4E3C;margin-top:8px;line-height:1.45}
+.dark .card{background:rgba(244,238,228,.07);border-color:rgba(217,178,107,.25)}
+.dark .card .l,.dark .card .s{color:rgba(247,241,231,.65)}
+.rows{width:100%;margin-top:18px}
+.row{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.row b{font-family:"Playfair Display",serif;font-weight:400;font-size:19px}
+.row.total{border-bottom:2px solid var(--gold)}
+.tl{display:grid;grid-template-columns:150px 1fr;row-gap:9px;column-gap:18px;font-size:12.5px;margin-top:16px}
+.tl .d{color:var(--mute);text-align:right;letter-spacing:.04em}
+.photo .tl .d{color:rgba(247,241,231,.65)}
+.big{font-family:"Playfair Display",serif;font-size:150px;line-height:.95;letter-spacing:.06em}
+ul{list-style:none;margin-top:14px;display:grid;gap:8px;font-size:13.5px}
+ul li::before{content:"·";color:var(--gold);margin-right:10px}
+.tag{display:inline-block;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;border:1px solid var(--gold);color:var(--gold);padding:5px 10px;border-radius:999px;margin-bottom:12px}
+.nav{display:flex;gap:7px;align-items:center}
+.dot{width:7px;height:7px;border-radius:50%;background:rgba(244,238,228,.28);cursor:pointer;transition:transform .2s}
+.dot.on{background:var(--gold2);transform:scale(1.35)}
+.ctr{color:rgba(244,238,228,.5);font-size:10px;letter-spacing:.3em;text-transform:uppercase}
+.compact h2{font-size:30px;max-width:40ch}.compact .rows{margin-top:12px}.compact .row{padding:7px 0;font-size:12.5px}.compact .row b{font-size:16px}.compact .cards{margin-top:14px}.compact .card{padding:12px 14px 10px}.compact .card .n{font-size:24px}
+.tl .d{align-self:start}
+.hint{color:rgba(244,238,228,.35);font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.draft{position:fixed;top:12px;right:14px;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold2);border:1px solid rgba(217,178,107,.5);padding:6px 10px;border-radius:999px}
+@media (max-width:900px){.slide{padding:32px 28px}.brand,.foot{left:28px;right:28px}h1{font-size:40px;letter-spacing:.14em}h2{font-size:24px}.cols{grid-template-columns:1fr;gap:18px}.img{min-height:120px}.c3,.c4,.c5{grid-template-columns:1fr 1fr}.big{font-size:80px}.card .n{font-size:22px}p{font-size:13px}}
+.hint{margin-bottom:6px}
+.credit{position:absolute;right:64px;bottom:44px;z-index:3;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,241,231,.55)}
+.img.has{padding:0;background-size:cover;background-position:center;position:relative}
+.img.has .credit{right:12px;bottom:10px}
+#gate{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease,visibility .5s}
+#gate::before{content:'';position:absolute;inset:0;background:rgba(21,16,12,.78);backdrop-filter:blur(4px)}
+#gate.hide{opacity:0;visibility:hidden;pointer-events:none}
+#gate .gcard{position:relative;width:min(92vw,430px);background:var(--cream);color:var(--ink);border-radius:10px;padding:34px 32px 26px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+#gate .gmark{height:56px;margin:0 auto 8px;display:block}
+#gate .gname{font-weight:500;font-size:.82rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:6px}
+#gate .gsub{font-weight:500;font-size:.6rem;letter-spacing:.38em;color:var(--gold);text-transform:uppercase;margin-bottom:18px}
+#gate h2{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:400;font-size:1.6rem;max-width:none;margin:0 0 .35em}
+#gate p{font-size:.85rem;color:#5c5044;max-width:none;margin-bottom:18px}
+#gate input{width:100%;margin-bottom:10px;padding:13px 16px;border-radius:3px;font-size:16px;font-family:inherit;border:1px solid var(--line);background:#fff;color:var(--ink);outline:none}
+#gate input:focus{border-color:var(--gold)}
+#gate .err{min-height:1.1em;font-size:.74rem;color:#9c4a33;margin-bottom:6px}
+#gate button{width:100%;padding:14px;min-height:44px;border:none;border-radius:3px;cursor:pointer;background:var(--ink);color:var(--cream);font-family:inherit;font-weight:500;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase}
+#gate button:hover{background:#392a1f}
+#gate button:disabled{opacity:.6;cursor:default}
+#gate .fine{margin-top:14px;font-size:.68rem;color:rgba(32,23,18,.42)}
+
+</style>
+</head>
+<body>
+<div class="draft">Draft v0.1 · Partnership deck · Sep 29 2026</div>
+<div class="deck" id="deck">
+
+<!-- 01 Cover -->
+<section class="slide photo active" style="--o1:.6;--o2:.88;--ph:url(media/cover-crowd.jpg)">
+  <div class="center" style="align-items:center;text-align:center">
+    <div class="kicker" style="color:var(--gold2)">March 19 to 22, 2027 · Carson Creek Ranch · Austin, Texas</div>
+    <h1>Coherence</h1>
+    <p style="margin:18px auto 6px;max-width:56ch;text-align:center">A four-day festival for optimists. Music, ceremony and collective action on the Colorado River, fifteen minutes from downtown Austin.</p>
+    <div class="kicker" style="margin-top:14px;color:rgba(247,241,231,.7)">Partnership deck · An IMXP × Unify production</div>
+  </div>
+  <div class="foot"><span>Spring Equinox · Full Moon · World Water Day</span><span>coherencefestival.com</span></div>
+</section>
+
+<!-- 02 Introduction -->
+<section class="slide">
+  <div class="brand">Coherence Festival · Partnership deck</div>
+  <div class="cols">
+    <div>
+      <div class="kicker">Introduction</div>
+      <h2>Where the world's optimists meet, <em>the future gets built.</em></h2>
+      <p style="margin-top:14px">Coherence is a four-day gathering for the people who believe humanity will triumph through its global challenges: founders, artists, healers, scientists and stewards, on one field, for one long weekend each spring.</p>
+      <div class="tl">
+        <div class="d">What</div><div>Part festival, part ceremony, part summit. Four themed days, four ceremonies, three keynote days, six headline music acts.</div>
+        <div class="d">When</div><div>Friday March 19 to Monday March 22, 2027. Spring Equinox through the Full Moon, closing on World Water Day.</div>
+        <div class="d">Where</div><div>Carson Creek Ranch: sixty acres on the Colorado River, fifteen minutes from downtown Austin, five from the airport.</div>
+        <div class="d">Who</div><div>2,500 guests in year one, growing to 10,000 by 2029. Drawn from the Texas Eclipse and Iceland Eclipse communities and Austin's own.</div>
+      </div>
+    </div>
+    <div class="img has" style="background-image:url(media/ceremony-circle-tent.jpg)"><span class="credit" style="color:rgba(247,241,231,.8)">Ceremony circle · Iceland Eclipse 2026</span></div>
+  </div>
+  <div class="foot"><span>Coherence · Austin</span><span>02</span></div>
+</section>
+
+<!-- 03 Experience -->
+<section class="slide">
+  <div class="brand">Coherence Festival · Partnership deck</div>
+  <div class="center">
+    <div class="kicker">The experience · Every day runs the same arc</div>
+    <h2>Move. Think. Go inward. Celebrate.</h2>
+    <div class="cards c4">
+      <div class="card"><div class="n">Move</div><div class="l">9:00 to 11:00</div><div class="s">Yoga on the river at 9, dawn dance party at 10. Daybreaker and Bass Church.</div></div>
+      <div class="card"><div class="n">Think</div><div class="l">11:00 to 12:30</div><div class="s">One keynote and one panel on the day's theme, then lunch in the Grove.</div></div>
+      <div class="card"><div class="n">Go inward</div><div class="l">15:00</div><div class="s">Afternoon ceremony in the Ceremony Garden, by the spring.</div></div>
+      <div class="card"><div class="n">Celebrate</div><div class="l">18:00 to midnight</div><div class="s">Dinner in the Grove, then music on the Amphitheater Stage until midnight.</div></div>
+    </div>
+    <div class="cards c4" style="margin-top:14px">
+      <div class="card" style="background:var(--g2)"><div class="l">Fri Mar 19</div><div class="s" style="font-size:12.5px;color:var(--ink)">Arrival and Opening</div></div>
+      <div class="card" style="background:var(--g1)"><div class="l">Sat Mar 20</div><div class="s" style="font-size:12.5px;color:var(--ink)">Consciousness after the AI revolution</div></div>
+      <div class="card" style="background:var(--g3)"><div class="l">Sun Mar 21</div><div class="s" style="font-size:12.5px;color:var(--ink)">Consciousness in financial and political systems</div></div>
+      <div class="card" style="background:var(--g2)"><div class="l">Mon Mar 22</div><div class="s" style="font-size:12.5px;color:var(--ink)">World Water Day</div></div>
+    </div>
+  </div>
+  <div class="foot"><span>Coherence · Austin</span><span>03</span></div>
+</section>
+
+<!-- 04 The place -->
+<section class="slide photo" style="--o1:.6;--o2:.88;--ph:url(media/venue-river.jpg)">
+  <div class="brand">Coherence Festival · Partnership deck</div>
+  <div class="cols">
+    <div>
+      <div class="kicker" style="color:var(--gold2)">The place · Carson Creek Ranch</div>
+      <h2 style="font-size:40px">Sixty acres of pecans and river, <em>zero travel days.</em></h2>
+      <p style="margin-top:12px">Family-owned since 1851 and a proven festival site. Six zones, each one a place a partner can own.</p>
+      <div class="tl" style="grid-template-columns:130px 1fr">
+        <div class="d">Amphitheater Stage</div><div>Main stage on the river under the pecans: yoga, keynotes, evening music</div>
+        <div class="d">Ceremony Garden</div><div>By the spring: the daily ceremony and the opening and closing</div>
+        <div class="d">The Grove</div><div>Food, lounges, biohacking, wellness vendors, sponsor activations</div>
+        <div class="d">The Bath House</div><div>Hot tubs, cold plunges, guided cleanses; VIP priority access</div>
+        <div class="d">RV Village</div><div>Ninety high-end pads with power, water, showers and concierge</div>
+        <div class="d">Gate and box office</div><div>Will-call, credentials, the first and last brand touchpoint</div>
+      </div>
+    </div>
+    <div></div>
+  </div>
+  <span class="credit">Colorado River, Austin · Larry D. Moore, CC BY 4.0</span>
+  <div class="foot"><span>Coherence · Austin</span><span>04</span></div>
+</section>
+
+<!-- 05 Audience -->
+<section class="slide">
+  <div class="brand">Coherence Festival · Partnership deck</div>
+  <div class="center">
+    <div class="kicker">The audience</div>
+    <h2>A ceremony-grade audience you cannot buy at SXSW.</h2>
+    <div class="cards c4">
+      <div class="card"><div class="n">Contemplatives</div><div class="s">Ceremony, breathwork, the Bath House. Wellness, longevity and supplement brands.</div></div>
+      <div class="card"><div class="n">Technologists</div><div class="s">Austin's AI and founder crowd. Keynote and VIP buyers. Tech, fintech, mobility.</div></div>
+      <div class="card"><div class="n">Creatives</div><div class="s">Artists, musicians, makers. Audio, camera, apparel and spirits.</div></div>
+      <div class="card"><div class="n">Stewards</div><div class="s">Land, water, philanthropy. Outdoor, water, energy and impact brands.</div></div>
+    </div>
+    <div class="cards c4" style="margin-top:14px">
+      <div class="card" style="background:var(--g2)"><div class="n">2,500</div><div class="l">Paid guests, 2027</div><div class="s">10,000 by 2029</div></div>
+      <div class="card" style="background:var(--g1)"><div class="n">~2,800</div><div class="l">On site each day</div><div class="s">Guests, artists, crew, volunteers</div></div>
+      <div class="card" style="background:var(--g3)"><div class="n">$349 to $1,299</div><div class="l">Ticket range</div><div class="s">Programming only; RV, food and Bath House on top</div></div>
+      <div class="card" style="background:var(--g2)"><div class="n">40+</div><div class="l">Countries in our community</div><div class="s">Texas Eclipse and Iceland Eclipse guests</div></div>
+    </div>
+    <div class="small" style="margin-top:12px">Community profile from Texas Eclipse and Iceland Eclipse: 35 average age, 75% with a higher degree, over half high net worth. Coherence-specific figures follow the first on-sale window.</div>
+  </div>
+  <div class="foot"><span>Coherence · Austin</span><span>05</span></div>
+</section>
+
+<!-- 06 Reach and marketing -->
+<section class="slide">
+  <div class="brand">Coherence Festival · Partnership deck</div>
+  <div class="center">
+    <div class="kicker">Reach and marketing plan</div>
+    <h2>Announced October 19. Five months of beats your brand rides along.</h2>
+    <div class="cards c4">
+      <div class="card"><div class="n">2.8M</div><div class="l">Global community</div><div class="s">IMXP and Unify audiences</div></div>
+      <div class="card"><div class="n">100k+</div><div class="l">Email list</div><div class="s">Eclipse and Unify subscribers</div></div>
+      <div class="card"><div class="n">50M+</div><div class="l">Impressions delivered</div><div class="s">Iceland Eclipse 2026 campaign</div></div>
+      <div class="card"><div class="n">Austin</div><div class="l">Local press, radio, OOH</div><div class="s">Fifteen minutes from every newsroom in town</div></div>
+    </div>
+    <div class="tl" style="margin-top:18px;grid-template-columns:120px 1fr">
+      <div class="d">Oct 19</div><div>Announcement and on-sale: press release, founder note, partner lists, ambassador posts. Presenting partner named at launch.</div>
+      <div class="d">November</div><div>Lineup reveals (Nov 2, Nov 16), Bath House feature, RV and VIP push over Black Friday weekend</div>
+      <div class="d">December</div><div>Speaker reveal, gift-a-ticket, early bird countdown, sponsor holiday features</div>
+      <div class="d">January</div><div>Full program reveal, program grid, ceremony leaders; sponsor activations revealed</div>
+      <div class="d">February</div><div>Pods, attendee stories, Austin guide, local press; sponsor content series</div>
+      <div class="d">March</div><div>Final-month pricing, know-before-you-go, on-site content and post-event recap film</div>
+    </div>
+  </div>
+  <div class="foot"><span>Coherence · Austin</span><span>06</span></div>
+</section>
+
+<!-- 07 Our promise -->
+<section class="slide dark">
+  <div class="brand">Coherence Festival · Partnership deck</div>
+  <div class="center">
+    <div class="kicker">Sponsorship · Our promise</div>
+    <h2 style="font-size:44px;max-width:22ch">Built with partners, <em>not sold to them.</em></h2>
+    <p style="margin-top:16px;max-width:60ch">Coherence works with each partner to design an activation that belongs on the field: something guests would miss if it weren't there. Every package below is a baseline. Branding, media, hospitality and on-site presence can all be shaped to your objectives.</p>
+    <div class="cards c3" style="margin-top:22px">
+      <div class="card"><div class="n" style="color:var(--gold2);font-size:22px">Presence</div><div class="s">A place on the site, not a banner on a fence: the Bath House, a dawn party, a keynote stage, the water station.</div></div>
+      <div class="card"><div class="n" style="color:var(--gold2);font-size:22px">Media</div><div class="s">Named in every beat from announcement to recap, on our channels and in the press kit.</div></div>
+      <div class="card"><div class="n" style="color:var(--gold2);font-size:22px">Hospitality</div><div class="s">VIP and GA passes, RV Village access, artist and speaker dinners for your people and your clients.</div></div>
+    </div>
+  </div>
+  <div class="foot"><span>Coherence · Austin</span><span>07</span></div>
+</section>
+
+<!-- 08 Tiers overview -->
+<section class="slide compact">
+  <div class="brand">Coherence Festival · Partnership deck</div>
+  <div class="center">
+    <div class="kicker">Partnership tiers · 2027</div>
+    <h2>Five tiers, plus powered-by experiences you can own outright.</h2>
+    <div class="cards c5">
+      <div class="card"><div class="l">Presenting · 1 partner</div><div class="n" style="margin-top:8px">$50,000</div><div class="s">"Company presents Coherence"</div></div>
+      <div class="card"><div class="l">Platinum · 2</div><div class="n" style="margin-top:8px">$25,000</div><div class="s">Zone naming, lounge, keynote intro</div></div>
+      <div class="card"><div class="l">Gold · 3</div><div class="n" style="margin-top:8px">$15,000</div><div class="s">Grove activation, stage thank-you</div></div>
+      <div class="card"><div class="l">Silver · 5</div><div class="n" style="margin-top:8px">$8,000</div><div class="s">Grove presence, product seeding</div></div>
+      <div class="card"><div class="l">Bronze · 8</div><div class="n" style="margin-top:8px">$4,000</div><div class="s">Logo, social, passes</div></div>
+    </div>
+    <div class="cards c4" style="margin-top:12px">
+      <div class="card" style="background:var(--g3)"><div class="l">Powered-by experience</div><div class="n" style="font-size:22px;margin-top:6px">$25,000 to $40,000</div><div class="s">Bath House, Dawn Parties, Ceremony Garden, World Water Day</div></div>
+      <div class="card" style="background:var(--g1)"><div class="l">RV Village partner</div><div class="n" style="font-size:22px;margin-top:6px">$15,000 + in kind</div><div class="s">Concierge, rented units, outdoor gear</div></div>
+      <div class="card" style="background:var(--g2)"><div class="l">Grove vendor</div><div class="n" style="font-size:22px;margin-top:6px">$1,200</div><div class="s">30 spots: food, wellness, biohacking, makers</div></div>
+      <div class="card" style="background:var(--g1)"><div class="l">Custom</div><div class="n" style="font-size:22px;margin-top:6px">Build with us</div><div class="s">Stage naming, F&amp;B rights, tech installs, excursions</div></div>
+    </div>
+    <div class="small" style="margin-top:10px">Cash schedule: 50% on signature (by Dec 15, 2026), 50% by Feb 15, 2027. In-kind value counted at cost. Category exclusivity available at Platinum and above.</div>
+  </div>
+  <div class="foot"><span>Coherence · Austin</span><span>08</span></div>
+</section>
+
+<!-- 09 Presenting -->
+<section class="slide compact">
+  <div class="brand">Coherence Festival · Partnership deck</div>
+  <div class="cols" style="grid-template-columns:1fr 1.2fr;align-items:center">
+    <div>
+      <div class="kicker">Presenting partner · 1 partner</div>
+      <h2 style="font-size:34px">$50,000</h2>
+      <p style="margin-top:10px">"Company presents Coherence." Named at the October 19 announcement and in every beat through the recap film. Category exclusive.</p>
+      <div class="img" style="min-height:200px;margin-top:16px">Image · Amphitheater stage at dusk</div>
+    </div>
+    <div>
+      <div class="tl" style="grid-template-columns:120px 1fr;margin-top:6px">
+        <div class="d">Media and promotion</div><div>Named title partner on the press release and press kit · Logo on all creative and event collateral · Dedicated social campaign with agreed deliverables · Full-page placement in the festival guide and app · Featured in the recap film and post-event report</div>
+        <div class="d">Signage and branding</div><div>Major logo at the gate and the Amphitheater Stage · Named on all festival wristbands · Push notifications in the festival app · Branding on the shuttle program</div>
+        <div class="d">Hospitality</div><div>8 VIP passes and 20 GA passes · 2 RV Village pads · Seats at the artist and speaker dinner · 4 all-areas production passes</div>
+        <div class="d">On-site activation</div><div>Bespoke activation in the Grove or a zone of choice · Product seeding in the VIP lounge and gift bag · Speaking slot or keynote introduction on one themed day</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Coherence · Austin</span><span>09</span></div>
+</section>
+
+<!-- 10 Platinum -->
+<section class="slide compact">
+  <div class="brand">Coherence Festival · Partnership deck</div>
+  <div class="cols" style="grid-template-columns:1fr 1.2fr;align-items:center">
+    <div>
+      <div class="kicker">Platinum · 2 partners</div>
+      <h2 style="font-size:34px">$25,000</h2>
+      <p style="margin-top:10px">Own a zone: the Ceremony Garden, the Grove lounge or the RV Village. Named supporting partner with category exclusivity.</p>
+      <div class="img" style="min-height:200px;margin-top:16px">Image · Ceremony Garden by the spring</div>
+    </div>
+    <div>
+      <div class="tl" style="grid-template-columns:120px 1fr;margin-top:6px">
+        <div class="d">Media and promotion</div><div>Named supporting partner on the press release and press kit · Logo on creative and event collateral · Social campaign with agreed deliverables · Half-page placement in the festival guide and app</div>
+        <div class="d">Signage and branding</div><div>Zone naming ("The Grove lounge by Company") · Logo at the gate · Push notifications in the festival app</div>
+        <div class="d">Hospitality</div><div>4 VIP passes and 10 GA passes · 1 RV Village pad · 2 all-areas production passes</div>
+        <div class="d">On-site activation</div><div>Bespoke activation in your zone · Product seeding in the VIP lounge · Keynote or panel introduction on one themed day</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Coherence · Austin</span><span>10</span></div>
+</section>
+
+<!-- 11 Gold Silver Bronze -->
+<section class="slide compact">
+  <div class="brand">Coherence Festival · Partnership deck</div>
+  <div class="center">
+    <div class="kicker">Gold · Silver · Bronze</div>
+    <h2 style="font-size:32px">Presence in the Grove, a voice on our channels, passes for your people.</h2>
+    <div class="cards c3" style="margin-top:16px">
+      <div class="card">
+        <div class="l">Gold · 3 partners</div><div class="n" style="margin-top:6px">$15,000</div>
+        <ul style="margin-top:10px;font-size:12px;gap:5px">
+          <li>Named participating partner in press kit and collateral</li>
+          <li>Social mentions across owned channels, organic and promoted</li>
+          <li>Grove activation space (10×10) with power</li>
+          <li>Main stage thank-you on screens daily</li>
+          <li>2 VIP and 6 GA passes, 1 production pass</li>
+          <li>Product seeding in gift bag and VIP lounge</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="l">Silver · 5 partners</div><div class="n" style="margin-top:6px">$8,000</div>
+        <ul style="margin-top:10px;font-size:12px;gap:5px">
+          <li>Logo in festival guide, app and collateral</li>
+          <li>Social mentions across owned channels</li>
+          <li>Grove presence (shared activation or table)</li>
+          <li>Main stage thank-you on screens</li>
+          <li>2 VIP and 2 GA passes</li>
+          <li>Product seeding in gift bag</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="l">Bronze · 8 partners</div><div class="n" style="margin-top:6px">$4,000</div>
+        <ul style="margin-top:10px;font-size:12px;gap:5px">
+          <li>Logo in festival guide and app</li>
+          <li>Social mentions across owned channels</li>
+          <li>Named in the press kit partner list</li>
+          <li>1 VIP and 2 GA passes</li>
+          <li>Product seeding in gift bag</li>
+          <li>Upgrade path to a Grove table</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Coherence · Austin</span><span>11</span></div>
+</section>
+
+<!-- 12 Powered-by experiences -->
+<section class="slide compact">
+  <div class="brand">Coherence Festival · Partnership deck</div>
+  <div class="center">
+    <div class="kicker">Powered-by experiences · Own a moment</div>
+    <h2 style="font-size:32px">Title and exclusive branding rights to the things guests will talk about for a year.</h2>
+    <div class="cards c4" style="margin-top:14px">
+      <div class="card"><div class="l">The Bath House</div><div class="n" style="font-size:22px;margin-top:6px">$40,000 or partner build</div><div class="s">Hot tubs, cold plunges, guided Monday cleanse. VIP priority access. The most photographed zone on site. Ideal: wellness, recovery, water brands.</div></div>
+      <div class="card"><div class="l">Dawn Parties</div><div class="n" style="font-size:22px;margin-top:6px">$25,000</div><div class="s">Daybreaker and Bass Church at 10:00 each day, 500 people dancing on the river before noon. Ideal: beverage, audio, apparel.</div></div>
+      <div class="card"><div class="l">Ceremony Garden</div><div class="n" style="font-size:22px;margin-top:6px">$30,000</div><div class="s">The daily 15:00 ceremony, the opening and the closing. Understated branding, deep association. Ideal: purpose-led brands.</div></div>
+      <div class="card"><div class="l">World Water Day</div><div class="n" style="font-size:22px;margin-top:6px">$25,000</div><div class="s">Monday's theme and closing ceremony, plus the on-site water program (refill stations, river stewardship). Ideal: water, outdoor, impact.</div></div>
+    </div>
+    <div class="cards c4" style="margin-top:12px">
+      <div class="card"><div class="l">Keynote Stage</div><div class="n" style="font-size:22px;margin-top:6px">$30,000</div><div class="s">Naming and intro rights for the three keynote mornings. Ideal: AI, fintech, media.</div></div>
+      <div class="card"><div class="l">RV Village</div><div class="n" style="font-size:22px;margin-top:6px">$15,000 + in kind</div><div class="s">Concierge partner, rented units, gear. Ideal: RV, outdoor, mobility.</div></div>
+      <div class="card"><div class="l">The Grove</div><div class="n" style="font-size:22px;margin-top:6px">$20,000</div><div class="s">Food, lounges, biohacking hall. Ideal: longevity, supplements, F&amp;B.</div></div>
+      <div class="card"><div class="l">Recap film</div><div class="n" style="font-size:22px;margin-top:6px">$15,000</div><div class="s">Presented-by credit on the film and post-event report that goes to the whole community.</div></div>
+    </div>
+    <div class="small" style="margin-top:10px">Each includes title branding on all creative for that experience, signage on site, a professional photo and video team, and delivery of the content for your own channels.</div>
+  </div>
+  <div class="foot"><span>Coherence · Austin</span><span>12</span></div>
+</section>
+
+<!-- 13 Activation ideas -->
+<section class="slide">
+  <div class="brand">Coherence Festival · Partnership deck</div>
+  <div class="center">
+    <div class="kicker">Activation ideas · By category</div>
+    <h2>Bring something the field would miss.</h2>
+    <div class="cards c4" style="margin-top:14px">
+      <div class="card"><div class="n" style="font-size:20px">Conscious lifestyle</div><div class="s">Bath House session sponsor · Morning yoga mats and towels · Breathwork dome · Supplement and longevity bar in the Grove · Sleep and recovery lounge in RV Village</div></div>
+      <div class="card"><div class="n" style="font-size:20px">Technology and AI</div><div class="s">Keynote stage naming · Builders' lounge with demos · Festival app and credentials partner · Immersive art install on the river · Night projection on the pecans</div></div>
+      <div class="card"><div class="n" style="font-size:20px">Outdoor and water</div><div class="s">World Water Day presenter · Refill stations and river stewardship · Kayak and paddle mornings · Gear library · Shuttle program partner</div></div>
+      <div class="card"><div class="n" style="font-size:20px">Food, drink and craft</div><div class="s">Grove dinner series (four themed dinners) · Dawn party bar · Coffee and tea house · Co-branded merch · Artist and speaker dinner host</div></div>
+    </div>
+    <div class="small" style="margin-top:14px">Also available: stage naming rights, food and beverage serving rights, VIP lounge presenter, corporate group passes and pods, excursions in the days around the festival.</div>
+  </div>
+  <div class="foot"><span>Coherence · Austin</span><span>13</span></div>
+</section>
+
+<!-- 14 Lineage -->
+<section class="slide dark">
+  <div class="brand">Coherence Festival · Partnership deck</div>
+  <div class="center">
+    <div class="kicker">Lineage · The events behind Coherence</div>
+    <h2 style="font-size:40px">Texas Eclipse. Iceland Eclipse. <em>Now, every spring, at home.</em></h2>
+    <div class="cards c3">
+      <div class="card"><div class="n" style="color:var(--gold2)">38,000</div><div class="l">Texas Eclipse 2024</div><div class="s">Attendees from 40 countries, 300+ contributors. "The ultimate Burning Man, Art Basel, SXSW and TED Talks in one."</div></div>
+      <div class="card"><div class="n" style="color:var(--gold2)">4,200</div><div class="l">Iceland Eclipse 2026</div><div class="s">Guests from 75+ countries, 287 artists and speakers, delivered on a remote peninsula.</div></div>
+      <div class="card"><div class="n" style="color:var(--gold2)">Same field</div><div class="l">Carson Creek Ranch</div><div class="s">Finding Euphoria ran here. The site, permits, neighbors and vendors are known.</div></div>
+    </div>
+    <p class="small" style="margin-top:16px">Contributors across those events have included NASA astronauts, MAPS founders, visionary painters, Grammy-nominated producers and the leaders of Singularity University. Coherence draws its speakers and artists from that bench.</p>
+  </div>
+  <div class="foot"><span>Coherence · Austin</span><span>14</span></div>
+</section>
+
+<!-- 15 Producers -->
+<section class="slide">
+  <div class="brand">Coherence Festival · Partnership deck</div>
+  <div class="cols">
+    <div>
+      <div class="kicker">The producers</div>
+      <h2>IMXP × Unify</h2>
+      <p style="margin-top:12px"><b>IMXP</b> builds immersive destination events: Texas Eclipse (2024), Iceland Eclipse (2026), Midnight Sun (2027). Money, production, site and partnerships.</p>
+      <p style="margin-top:10px"><b>Unify</b> convenes a global community of 2.8M around meditation, ceremony and collective action. Program, ceremony leaders, speakers and community.</p>
+      <p style="margin-top:10px">Together: a festival with the production standards of a 38,000-person event and the intimacy of a 2,500-person one.</p>
+    </div>
+    <div class="img">Image · Mitch and Patrick, or the Iceland Eclipse crew on site</div>
+  </div>
+  <div class="foot"><span>Coherence · Austin</span><span>15</span></div>
+</section>
+
+<!-- 16 Contact -->
+<section class="slide photo" style="--o1:.6;--o2:.88;--ph:url(media/ceremony-drum.jpg)">
+  <div class="brand">Coherence Festival · Partnership deck</div>
+  <div class="cols">
+    <div>
+      <div class="kicker" style="color:var(--gold2)">Let's build it together</div>
+      <h2 style="font-size:44px">Presenting and Platinum partners are named at the October 19 launch.</h2>
+      <p style="margin-top:14px">Conversations now, signatures by December 15 to be in the announcement, activation design in January, on site March 17.</p>
+      <div class="tl" style="margin-top:18px">
+        <div class="d">Mitch Morales</div><div>IMXP · mitch@im-xp.com · +1 512 638 5946</div>
+        <div class="d">Patrick Kronfli</div><div>Unify</div>
+      </div>
+    </div>
+    <div></div>
+  </div>
+  <span class="credit">Iceland Eclipse 2026</span>
+  <div class="foot"><span>Coherence · Austin</span><span>16</span></div>
+</section>
+
+</div>
+<div class="nav" id="nav"></div>
+<div class="hint">← → or click to navigate</div>
+<div id="gate">
+  <div class="gcard">
+    <img class="gmark" src="media/logo-symbol.png" alt="Coherence" />
+    <div class="gname">Coherence</div>
+    <div class="gsub">Partnership Deck</div>
+    <h2>Connected, in spirit.</h2>
+    <p>Enter your details to view the deck.</p>
+    <form id="gateForm" novalidate>
+      <input id="gateName" type="text" placeholder="Full name" autocomplete="name" />
+      <input id="gateEmail" type="email" placeholder="your@email.com" autocomplete="email" />
+      <div class="err" id="gateErr"></div>
+      <button type="submit" id="gateBtn">View Deck</button>
+    </form>
+    <div class="fine">Confidential. Not for further distribution.</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')], nav=document.getElementById('nav'), deck=document.getElementById('deck');
+  let i=0;
+  const locked=()=>{const g=document.getElementById('gate');return g&&!g.classList.contains('hide');};
+  slides.forEach((_,k)=>{const d=document.createElement('span');d.className='dot'+(k===0?' on':'');d.onclick=()=>go(k);nav.appendChild(d);});
+  function go(k){i=(k+slides.length)%slides.length;slides.forEach((s,j)=>s.classList.toggle('active',j===i));[...nav.children].forEach((d,j)=>d.classList.toggle('on',j===i));history.replaceState(null,'','#'+(i+1));}
+  document.addEventListener('keydown',e=>{if(locked())return;if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown')go(i+1);if(e.key==='ArrowLeft'||e.key==='PageUp')go(i-1);});
+  deck.addEventListener('click',e=>{if(locked())return;go(e.clientX>deck.getBoundingClientRect().left+deck.offsetWidth*0.3?i+1:i-1);});
+  const h=parseInt(location.hash.slice(1));if(h>0&&h<=slides.length)go(h-1);
+})();
+/* email gate: name + email into Supabase (australasia-eclipse-2028 project, insert-only coherence_deck_leads table), same pattern as the Coherence info deck */
+(function(){
+  const KEY='coherence_partner_access';
+  const SUPA_URL='https://qmxhsendoepqeyeolzil.supabase.co';
+  const SUPA_KEY='sb_publishable_qU4HH0buJWQW3_RJk3QlYg_5r84ZfdP';
+  const gate=document.getElementById('gate');
+  let seen=false;try{seen=!!localStorage.getItem(KEY);}catch(_){}
+  const EMAIL_KEY=KEY+'_email';
+
+  /* View-duration tracking: active-tab time per visit, recorded through the
+     deck_view_beat() database function into coherence_deck_views (separate
+     from the lead-capture gate, so it never touches the leads data). Email is
+     attached when known -- just submitted, or remembered from this browser --
+     otherwise the visit is tracked anonymously. Uses fetch(keepalive) rather
+     than sendBeacon on unload because Supabase's REST API needs the
+     apikey/Authorization headers, which sendBeacon can't send. */
+  function trackViews(email){
+    try{
+      const SID=(crypto.randomUUID?crypto.randomUUID():(Date.now()+'-'+Math.random().toString(16).slice(2)));
+      let activeMs=0, lastTick=(document.visibilityState==='visible'?Date.now():null), lastSent=-1;
+      function tick(){if(lastTick!==null){activeMs+=Math.min(Date.now()-lastTick,60000);lastTick=Date.now();}}
+      document.addEventListener('visibilitychange',()=>{tick();lastTick=document.visibilityState==='visible'?Date.now():null;if(document.visibilityState==='hidden')send(true);});
+      function send(keepalive){
+        tick();
+        const seconds=Math.round(activeMs/1000);
+        if(seconds<3||seconds===lastSent)return;
+        lastSent=seconds;
+        fetch(SUPA_URL+'/rest/v1/rpc/deck_view_beat',{
+          method:'POST', keepalive:!!keepalive,
+          headers:{'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY,'Content-Type':'application/json'},
+          body:JSON.stringify({p_deck:'coherence_partner',p_session_id:SID,p_email:email||null,p_seconds:seconds})
+        }).catch(()=>{});
+      }
+      setInterval(()=>send(false),20000);
+      addEventListener('pagehide',()=>send(true));
+    }catch(_){}
+  }
+  let saved=null;try{saved=localStorage.getItem(EMAIL_KEY);}catch(_){}
+  /* unlocked before emails were saved: ask once, so every recorded view has an email address */
+  const returning=seen&&!saved;
+  if(seen&&saved){gate.classList.add('hide');trackViews(saved);return;}
+  const form=document.getElementById('gateForm'),nameEl=document.getElementById('gateName'),email=document.getElementById('gateEmail'),err=document.getElementById('gateErr'),btn=document.getElementById('gateBtn');
+  const re=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if(returning){const h=gate.querySelector('h2'),p=gate.querySelector('p');if(h)h.textContent='Welcome back.';if(p)p.textContent='Please confirm your email to continue.';nameEl.style.display='none';btn.textContent='Continue';}
+  var opened=false;
+  function unlock(viewerEmail){if(opened)return;opened=true;try{localStorage.setItem(KEY,'1');if(viewerEmail)localStorage.setItem(EMAIL_KEY,viewerEmail);}catch(_){}gate.classList.add('hide');trackViews(viewerEmail);}
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const v=email.value.trim(),n=nameEl.value.trim();
+    if(!re.test(v)){err.textContent='Please enter a valid email address.';email.focus();return;}
+    err.textContent='';btn.disabled=true;btn.textContent='Opening…';
+    if(returning){unlock(v);return;}
+    setTimeout(()=>unlock(v),4000);   /* a stalled request must not trap the viewer */
+    fetch(SUPA_URL+'/rest/v1/coherence_deck_leads',{method:'POST',headers:{'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY,'Content-Type':'application/json','Prefer':'return=minimal'},
+      body:JSON.stringify({email:v,name:n||null,source:'coherence-partner-gate',referrer:document.referrer||null,user_agent:navigator.userAgent})}).then(()=>unlock(v)).catch(()=>unlock(v));
+  });
+  email.focus();
+})();
+
+</script>
+</body>
+</html>

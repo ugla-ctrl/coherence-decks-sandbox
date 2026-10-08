@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>COHERENCE · Investment Deck</title>
+<meta name="description" content="COHERENCE Gathering. The future is bright. March 19-22, 2027 · Carson Creek Ranch, Austin, Texas." />
+<meta property="og:title" content="COHERENCE · Investment Deck" />
+<meta property="og:description" content="A four-day festival for optimists: music, ceremony, and collective action on the Colorado River. March 19-22, 2027 · Carson Creek Ranch, Austin, Texas." />
+<meta property="og:image" content="media/hero-bg.png" />
+<meta name="theme-color" content="#201712" />
+<link rel="icon" href="media/logo-symbol.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#f6ecde; --cream-dim:rgba(246,236,222,.78); --cream-faint:rgba(246,236,222,.5);
+    --ink:#201712; --ink-dim:#5c5044; --taupe:#cfc2b3;
+    --copper:#ae7853; --copper-bright:#c9926a; --copper-deep:#8a5c3d;
+    --umber-deep:#171009; --umber:#241812; --dusk:#38281a;
+    --line-d:rgba(246,236,222,.16); --line-l:rgba(32,23,18,.14);
+    --clay:#ae7853; --sage:#7d8b6f; --ochre:#c2954a; --umber-c:#6d4a32; --rose:#b58072;
+    --olive:#5f6152; --euca:#4f6b66; --sand:#a99680; --wine:#8a5448;
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Work Sans','Helvetica Neue',Arial,sans-serif;
+    --edge:clamp(26px,4.8cqw,86px);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{background:radial-gradient(130% 150% at 50% -25%,#45301e 0%,#241812 55%,#120b06 100%);
+    color:var(--cream);font-family:var(--sans);overflow:hidden;
+    -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+  #wrap{height:100%;display:flex;align-items:center;justify-content:center;padding:clamp(10px,2.4vh,28px)}
+
+  /* ---- the stage: a floating 16:9 card ---- */
+  #stage{position:relative;aspect-ratio:16/9;width:min(94vw,calc(90vh*16/9));
+    border-radius:16px;overflow:hidden;container-type:size;
+    background:linear-gradient(160deg,#3a2a1b 0%,var(--umber) 55%,var(--umber-deep) 100%);
+    box-shadow:0 32px 90px rgba(0,0,0,.62),0 0 0 1px rgba(246,236,222,.08)}
+
+  /* ---- the ripple: concentric rings echoing the wave mark; turns as the story advances ---- */
+  #mandala{position:absolute;inset:-26%;z-index:0;display:flex;align-items:center;justify-content:center;
+    transition:transform 1.6s cubic-bezier(.22,.61,.36,1);pointer-events:none}
+  #mandala svg{width:100%;height:100%}
+  @media (prefers-reduced-motion:reduce){#mandala{transition:none}}
+
+  /* ---- slides ---- */
+  .slide{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:center;
+    padding:var(--edge);opacity:0;visibility:hidden;transition:opacity .7s ease,visibility .7s;
+    pointer-events:none}
+  .slide.active{opacity:1;visibility:visible;pointer-events:auto}
+  .slide.active .st{animation:rise .65s cubic-bezier(.22,.61,.36,1) both}
+  .slide.active .st:nth-child(2){animation-delay:.07s}
+  .slide.active .st:nth-child(3){animation-delay:.14s}
+  .slide.active .st:nth-child(4){animation-delay:.21s}
+  .slide.active .st:nth-child(5){animation-delay:.28s}
+  .slide.active .st:nth-child(6){animation-delay:.35s}
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.slide.active .st{animation:none}}
+
+  .slide.light{background:var(--cream);color:var(--ink)}
+  .slide.photo .bg{position:absolute;inset:0;z-index:0;background:url('media/hero-bg.png') center/cover no-repeat}
+  .slide.photo .shade{position:absolute;inset:0;z-index:1;
+    background:linear-gradient(180deg,rgba(23,16,9,.5) 0%,rgba(23,16,9,.28) 40%,rgba(23,16,9,.72) 100%)}
+  .slide.photo>*:not(.bg):not(.shade):not(.chip):not(.fd):not(.sec):not(.coverlogo):not(.credit){position:relative;z-index:2}
+
+  /* ---- slide chrome ---- */
+  .chip{position:absolute;top:clamp(20px,4.2cqh,44px);left:var(--edge);z-index:3;display:flex;align-items:center;gap:.7em;
+    font-weight:500;font-size:clamp(.64rem,.92cqw,.84rem);letter-spacing:.3em;color:var(--cream-dim)}
+  .chip img{height:clamp(20px,3.4cqh,30px);width:auto;display:block}
+  .slide.light .chip{color:var(--ink-dim)}
+  .fd{position:absolute;bottom:clamp(18px,3.8cqh,40px);right:var(--edge);z-index:3;
+    font-weight:500;font-size:clamp(.58rem,.82cqw,.76rem);letter-spacing:.24em;text-transform:uppercase;color:var(--cream-faint)}
+  .sec{position:absolute;bottom:clamp(18px,3.8cqh,40px);left:var(--edge);z-index:3;
+    font-weight:500;font-size:clamp(.58rem,.82cqw,.76rem);letter-spacing:.24em;text-transform:uppercase;color:var(--cream-faint)}
+  .slide.light .fd,.slide.light .sec{color:rgba(32,23,18,.4)}
+  .credit{position:absolute;bottom:clamp(18px,3.8cqh,40px);left:50%;transform:translateX(-50%);z-index:3;
+    white-space:nowrap;font-weight:400;font-size:clamp(.5rem,.68cqw,.62rem);letter-spacing:.1em;
+    color:rgba(246,236,222,.34)}
+
+  /* ---- type system ---- */
+  .eyebrow{font-weight:500;font-size:clamp(.64rem,.95cqw,.86rem);letter-spacing:.32em;color:var(--copper-bright);
+    text-transform:uppercase;margin-bottom:clamp(14px,2.6cqh,26px)}
+  .slide.light .eyebrow{color:var(--copper-deep)}
+  h1{font-family:var(--serif);font-weight:400;letter-spacing:-.04em;line-height:1;
+    font-size:clamp(3.4rem,10.4cqw,9.2rem);text-align:center}
+  h2{font-family:var(--serif);font-weight:500;letter-spacing:-.02em;line-height:1.12;
+    font-size:clamp(1.7rem,4.1cqw,3.6rem);max-width:22ch}
+  .poem{font-family:var(--serif);font-style:italic;font-weight:400;line-height:1.28;letter-spacing:-.01em;
+    font-size:clamp(1.7rem,4.4cqw,3.9rem);max-width:22ch}
+  .poem em{font-style:italic;color:var(--copper-bright)}
+  .slide.light .poem em{color:var(--copper-deep)}
+  .amp{font-family:var(--sans);font-style:normal;font-weight:500}
+  .tagline{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--copper-bright);
+    font-size:clamp(1.1rem,2.4cqw,2.1rem);letter-spacing:-.01em}
+  .sub{font-weight:400;line-height:1.6;font-size:clamp(.92rem,1.6cqw,1.4rem);color:var(--cream-dim);max-width:54ch;
+    margin-top:clamp(12px,2.4cqh,24px)}
+  .slide.light .sub{color:var(--ink-dim)}
+  p{font-weight:400;line-height:1.6;font-size:clamp(.84rem,1.18cqw,1.06rem);color:var(--cream-dim);max-width:60ch}
+  .slide.light p{color:var(--ink-dim)}
+  p strong,.sub strong{font-weight:600;color:var(--cream)}
+  .slide.light p strong,.slide.light .sub strong{color:var(--ink)}
+
+  /* ---- components ---- */
+  .statrow{display:flex;gap:clamp(22px,4.4cqw,68px);margin-top:clamp(24px,5cqh,56px);flex-wrap:wrap}
+  .stat .n{font-family:var(--serif);font-weight:500;font-size:clamp(1.5rem,3.2cqw,2.9rem);letter-spacing:-.02em;color:var(--copper-bright)}
+  .slide.light .stat .n{color:var(--copper-deep)}
+  .slide.photo .stat .n{color:var(--cream)}
+  .stat .l{margin-top:.4em;font-weight:500;font-size:clamp(.6rem,.86cqw,.78rem);letter-spacing:.18em;
+    text-transform:uppercase;color:var(--cream-faint)}
+  .slide.light .stat .l{color:rgba(32,23,18,.48)}
+
+  .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.8cqw,28px);margin-top:clamp(22px,4.4cqh,46px)}
+  .pillar{border:1px solid var(--line-d);border-radius:12px;padding:clamp(16px,2cqw,30px);
+    background:rgba(23,16,9,.42)}
+  .pillar .ring{width:clamp(34px,4.4cqw,58px);height:clamp(34px,4.4cqw,58px);margin-bottom:clamp(10px,1.8cqh,18px)}
+  .pillar h3{font-family:var(--serif);font-weight:500;font-size:clamp(1.05rem,1.75cqw,1.6rem);letter-spacing:-.01em;margin-bottom:.4em;color:var(--cream)}
+  .pillar p{font-size:clamp(.72rem,.98cqw,.9rem)}
+
+  .cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.2cqw,34px);margin-top:clamp(20px,4cqh,42px)}
+  .col h3{font-weight:600;font-size:clamp(.78rem,1.2cqw,1.1rem);letter-spacing:.2em;text-transform:uppercase;
+    color:var(--copper-bright);margin-bottom:clamp(8px,1.6cqh,14px)}
+  .col ul{list-style:none}
+  .col li{padding:.42em 0;font-size:clamp(.78rem,1.08cqw,.98rem);color:var(--cream-dim);
+    border-bottom:1px solid var(--line-d);font-weight:400}
+  .col li:last-child{border-bottom:none}
+
+  .meets{margin-top:clamp(20px,4cqh,40px);font-family:var(--serif);font-style:italic;
+    font-size:clamp(1rem,1.9cqw,1.7rem);color:var(--copper-bright);line-height:1.45}
+
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.6cqw,40px);margin-top:clamp(20px,4cqh,40px)}
+  .vs .side{border-radius:12px;padding:clamp(16px,2cqw,28px)}
+  .vs .them{border:1px solid var(--line-l);background:rgba(255,255,255,.5)}
+  .vs .us{background:var(--ink);color:var(--cream);box-shadow:0 18px 44px rgba(32,23,18,.3)}
+  .vs h3{font-weight:600;font-size:clamp(.72rem,1.1cqw,.98rem);letter-spacing:.22em;text-transform:uppercase;margin-bottom:clamp(8px,1.6cqh,14px)}
+  .vs .them h3{color:rgba(32,23,18,.44)}
+  .vs .us h3{color:var(--copper-bright)}
+  .vs ul{list-style:none}
+  .vs li{padding:.44em 0;font-size:clamp(.74rem,1.02cqw,.94rem);line-height:1.45}
+  .vs .them li{color:var(--ink-dim);border-bottom:1px solid var(--line-l)}
+  .vs .us li{color:rgba(246,236,222,.75);border-bottom:1px solid rgba(246,236,222,.14)}
+  .vs li:last-child{border-bottom:none}
+  .vs .us li b{color:var(--cream);font-weight:600}
+
+  .days{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2cqw,30px);margin-top:clamp(20px,4cqh,42px)}
+  .day{border-left:2px solid var(--copper);padding-left:clamp(12px,1.6cqw,22px)}
+  .day .dn{font-weight:500;font-size:clamp(.6rem,.88cqw,.8rem);letter-spacing:.3em;color:var(--copper-bright);text-transform:uppercase}
+  .day h3{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.3rem,2.6cqw,2.3rem);
+    margin:.22em 0 .38em;color:var(--cream)}
+  .day p{font-size:clamp(.74rem,1.02cqw,.94rem)}
+
+  .tracks{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.3cqw,20px);margin-top:clamp(18px,3.6cqh,38px)}
+  .track{display:flex;align-items:center;gap:.7em;border:1px solid var(--line-l);border-radius:10px;
+    padding:clamp(10px,1.3cqw,18px);background:rgba(255,255,255,.55)}
+  .track .dot{flex:none;width:clamp(9px,1.15cqw,13px);height:clamp(9px,1.15cqw,13px);border-radius:50%}
+  .track .t{font-weight:500;font-size:clamp(.7rem,.98cqw,.92rem);color:var(--ink)}
+  .track .c{margin-left:auto;font-family:var(--serif);font-weight:500;font-size:clamp(.78rem,1.1cqw,1rem);color:var(--copper-deep)}
+
+  .layers{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.9cqw,30px);margin-top:clamp(18px,3.4cqh,36px)}
+  .layer{border-radius:12px;border:1px solid var(--line-l);background:rgba(255,255,255,.55);padding:clamp(15px,1.9cqw,28px)}
+  .layer .n{font-family:var(--serif);font-weight:500;font-size:clamp(1.6rem,3.3cqw,3rem);color:var(--copper-deep);letter-spacing:-.02em}
+  .layer h3{font-weight:600;font-size:clamp(.84rem,1.28cqw,1.12rem);margin:.3em 0 .35em;color:var(--ink)}
+  .layer p{font-size:clamp(.7rem,.95cqw,.88rem)}
+
+  .arc{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2cqw,32px);margin-top:clamp(20px,4cqh,42px)}
+  .phase{border-top:2px solid var(--copper);padding-top:clamp(10px,1.8cqh,18px)}
+  .phase .pn{font-weight:500;font-size:clamp(.58rem,.84cqw,.76rem);letter-spacing:.28em;color:var(--copper-bright);text-transform:uppercase}
+  .phase h3{font-family:var(--serif);font-weight:500;font-size:clamp(1rem,1.6cqw,1.4rem);margin:.35em 0 .4em;color:var(--cream)}
+  .phase p,.phase li{font-size:clamp(.72rem,1cqw,.92rem);color:var(--cream-dim)}
+  .phase ul{list-style:none;margin-top:.2em}
+  .phase li{padding:.3em 0;border-bottom:1px solid var(--line-d)}
+  .phase li:last-child{border-bottom:none}
+
+  table{border-collapse:collapse;width:100%;margin-top:clamp(16px,3.2cqh,34px)}
+  th{font-weight:500;font-size:clamp(.58rem,.82cqw,.76rem);letter-spacing:.2em;text-transform:uppercase;
+    color:rgba(32,23,18,.44);text-align:left;padding:.5em .9em .5em 0;border-bottom:2px solid var(--ink)}
+  td{font-size:clamp(.76rem,1.08cqw,1rem);color:var(--ink-dim);padding:clamp(.45em,1.1cqh,.7em) .9em clamp(.45em,1.1cqh,.7em) 0;
+    border-bottom:1px solid var(--line-l)}
+  td b{color:var(--ink);font-weight:600}
+  td.num{font-weight:600;color:var(--copper-deep);white-space:nowrap}
+  tr.total td{border-bottom:none;border-top:2px solid var(--ink);font-weight:600;color:var(--ink)}
+  tr.total td.num{font-family:var(--serif);font-weight:500;color:var(--ink);font-size:clamp(.95rem,1.5cqw,1.3rem)}
+
+  .split{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(24px,4cqw,64px);align-items:center}
+  .blist{list-style:none;margin-top:clamp(14px,2.8cqh,28px)}
+  .blist li{position:relative;padding:.52em 0 .52em 1.5em;font-size:clamp(.8rem,1.14cqw,1.02rem);
+    line-height:1.5;color:var(--cream-dim);border-bottom:1px solid var(--line-d)}
+  .blist li:last-child{border-bottom:none}
+  .blist li::before{content:'';position:absolute;left:0;top:1.05em;width:.5em;height:.5em;border-radius:50%;
+    border:1.5px solid var(--copper-bright)}
+  .blist li b{color:var(--cream);font-weight:600}
+  .slide.light .blist li{color:var(--ink-dim);border-bottom-color:var(--line-l)}
+  .slide.light .blist li b{color:var(--ink)}
+  .slide.light .blist li::before{border-color:var(--copper-deep)}
+
+  .center{align-items:center;text-align:center}
+  .center h2,.center .poem,.center p,.center .sub{margin-left:auto;margin-right:auto}
+
+  .contact{margin-top:clamp(24px,5cqh,52px);font-weight:400;font-size:clamp(.9rem,1.5cqw,1.3rem);color:var(--cream-dim)}
+  .contact a{color:var(--cream);text-decoration:underline;text-decoration-color:var(--copper-bright);text-underline-offset:.25em}
+
+  .coverlogo{position:absolute;top:clamp(20px,4.2cqh,44px);left:var(--edge);z-index:3;height:clamp(34px,6cqh,54px)}
+
+  /* ---- navigation chrome ---- */
+  #ctr{position:fixed;left:clamp(16px,2.4vw,34px);bottom:clamp(14px,2.4vh,26px);z-index:20;
+    font-weight:500;font-size:.7rem;letter-spacing:.26em;color:rgba(246,236,222,.4)}
+  #dots{position:fixed;left:50%;transform:translateX(-50%);bottom:clamp(14px,2.4vh,26px);z-index:20;display:flex;gap:9px}
+  #dots button{width:7px;height:7px;border-radius:50%;border:none;cursor:pointer;padding:0;
+    background:rgba(246,236,222,.22);transition:all .35s}
+  #dots button.on{background:var(--copper-bright);transform:scale(1.45)}
+  .arrows{position:fixed;right:clamp(16px,2.4vw,34px);bottom:clamp(10px,2vh,20px);z-index:20;display:flex;gap:8px}
+  .arrows button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(201,146,106,.35);cursor:pointer;
+    background:rgba(23,16,9,.55);color:var(--copper-bright);font-size:1.05rem;line-height:1;
+    display:flex;align-items:center;justify-content:center;transition:all .25s}
+  .arrows button:hover{background:var(--copper);color:var(--cream);border-color:var(--copper)}
+  /* ---- compact mode: phones + tablets in portrait ----
+     the floating 16:9 stage only works in landscape-ish viewports; below this
+     breakpoint (or in portrait) the stage becomes a full-bleed, per-slide
+     scrollable panel instead, so content reflows rather than shrinking to
+     an unreadable letterbox. container queries still drive type/spacing
+     since #stage keeps a definite height (100dvh), just not a 16:9 one. */
+  @media (max-width:920px), (orientation:portrait) and (max-width:1200px){
+    :root{--edge:22px}
+    #wrap{padding:0;align-items:stretch}
+    #stage{width:100vw;height:100dvh;aspect-ratio:auto;border-radius:0;box-shadow:none}
+    .slide{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+      padding-top:76px;padding-bottom:104px;justify-content:flex-start}
+    .slide.center{justify-content:center}
+    .slide.photo .bg{background-attachment:scroll}
+    h1{font-size:clamp(2.7rem,15vw,5rem);letter-spacing:-.03em}
+    .poem{font-size:clamp(1.4rem,7vw,2.4rem)}
+    h2{font-size:clamp(1.5rem,6.6vw,2.2rem)}
+    .eyebrow{letter-spacing:.22em}
+    .pillars,.cols3,.days,.tracks,.layers,.arc{grid-template-columns:1fr 1fr;gap:14px}
+    .vs,.split{grid-template-columns:1fr;gap:22px}
+    .split>div:first-child{order:1}
+    .statrow{gap:22px}
+    table{font-size:.92rem}
+    .chip img{height:20px}
+    .credit{display:none}
+    #dots{bottom:14px;gap:7px}
+    #dots button{width:6px;height:6px}
+    .arrows{bottom:12px;right:14px}
+    .arrows button{width:34px;height:34px}
+    #ctr{display:none}
+  }
+  @media (max-width:560px){
+    .pillars,.cols3,.days,.tracks,.layers,.arc{grid-template-columns:1fr}
+  }
+
+  /* ---- email gate: styled after coherencegathering.com ---- */
+  #gate{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;
+    background:url('media/hero-bg.png') center/cover no-repeat;transition:opacity .5s ease,visibility .5s}
+  #gate::before{content:'';position:absolute;inset:0;background:rgba(23,16,9,.66);backdrop-filter:blur(3px)}
+  #gate.hide{opacity:0;visibility:hidden;pointer-events:none}
+  #gate .card{position:relative;width:min(92vw,430px);background:var(--cream);
+    border-radius:6px;padding:42px 38px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+  #gate .gmark{height:56px;margin:0 auto 12px;display:block}
+  #gate .gsub{font-weight:500;font-size:.6rem;letter-spacing:.38em;color:var(--copper-deep);text-transform:uppercase;margin-bottom:18px}
+  #gate h2{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.6rem;letter-spacing:-.01em;color:var(--ink);max-width:none;margin-bottom:.35em}
+  #gate p{font-size:.85rem;color:var(--ink-dim);max-width:none;margin-bottom:18px}
+  #gate input{width:100%;margin-bottom:10px;padding:13px 16px;border-radius:3px;font-size:16px;
+    border:1px solid rgba(32,23,18,.22);background:#fff;color:var(--ink);font-family:var(--sans);outline:none}
+  #gate input:focus{border-color:var(--copper)}
+  #gate input::placeholder{color:rgba(32,23,18,.35)}
+  #gate .err{min-height:1.1em;font-size:.74rem;color:#9c4a33;margin-bottom:6px}
+  #gate button{width:100%;padding:14px;min-height:44px;border:none;border-radius:3px;cursor:pointer;
+    background:var(--ink);color:var(--cream);font-family:var(--sans);font-weight:500;font-size:.8rem;
+    letter-spacing:.22em;text-transform:uppercase;transition:background .25s}
+  #gate button:hover{background:#392a1f}
+  #gate button:disabled{opacity:.6;cursor:default}
+  #gate .fine{margin-top:14px;font-size:.68rem;color:rgba(32,23,18,.42)}
+</style>
+</head>
+<body>
+
+<div id="wrap"><div id="stage">
+
+  <!-- the ripple: rings echoing the wave mark; turns and grows as the deck advances -->
+  <div id="mandala" aria-hidden="true">
+    <svg viewBox="0 0 1000 1000" fill="none">
+      <g stroke="#c9926a" stroke-opacity=".10">
+        <circle cx="500" cy="500" r="90"  stroke-width="1.5"/>
+        <circle cx="512" cy="488" r="164" stroke-width="1.3"/>
+        <circle cx="490" cy="512" r="242" stroke-width="1.1"/>
+        <circle cx="508" cy="494" r="326" stroke-width="1"/>
+        <circle cx="494" cy="506" r="412" stroke-width=".9"/>
+        <circle cx="500" cy="500" r="480" stroke-width=".8"/>
+      </g>
+      <g stroke="#c9926a" stroke-opacity=".07" stroke-width="1.1">
+        <path d="M260 640 C330 520 470 470 600 520 C540 500 470 520 430 580"/>
+        <path d="M320 700 C400 560 580 520 720 590 C640 560 540 590 490 660"/>
+      </g>
+      <circle cx="500" cy="500" r="4.5" fill="#c9926a" fill-opacity=".55"/>
+    </svg>
+  </div>
+
+  <!-- 01 · cover: mirrors coherencegathering.com -->
+  <section class="slide photo center active">
+    <div class="bg"></div><div class="shade"></div>
+    <img class="coverlogo" src="media/logo-symbol.png" alt="Coherence" />
+    <div class="st eyebrow" style="color:var(--cream-dim)">March 19 to 22, 2027 · Austin, Texas</div>
+    <h1 class="st">COHERENCE</h1>
+    <div class="st tagline" style="margin-top:.2em">The future is bright.</div>
+    <p class="st sub" style="max-width:64ch">A 4-day gathering for change makers who believe and know we will triumph through our global challenges to create planetary paradise.</p>
+    <div class="st tagline" style="margin-top:.4em;font-size:clamp(.95rem,2cqw,1.7rem)">Music, Ceremony, <span class="amp">&amp;</span> Collective Action</div>
+    <div class="st statrow" style="justify-content:center;margin-top:clamp(20px,4cqh,44px)">
+      <div class="stat"><div class="n">Four days</div><div class="l">Spring Equinox to World Water Day</div></div>
+      <div class="stat"><div class="n">60 acres</div><div class="l">On the Colorado River</div></div>
+      <div class="stat"><div class="n">Minutes</div><div class="l">From downtown Austin</div></div>
+    </div>
+    <div class="fd">Investment Deck</div>
+  </section>
+
+  <!-- 02 · thesis -->
+  <section class="slide">
+    <div class="chip"><img src="media/logo-symbol.png" alt=""/> COHERENCE</div>
+    <div class="st eyebrow">The Thesis</div>
+    <div class="st poem">When the world's top optimists meet, <em>the future gets built.</em></div>
+    <p class="st sub">Four days on the Colorado River for the people who believe, and know, that humanity will triumph through its global challenges. We come together to connect, heal, and collaborate on the future of humanity: working on ourselves while we work on the world.</p>
+    <p class="st sub"><strong>Music, ceremony, and collective action.</strong></p>
+    <div class="sec">01 · Thesis</div><div class="fd">Investment Deck</div>
+  </section>
+
+  <!-- 03 · what is coherence -->
+  <section class="slide light">
+    <div class="chip"><img src="media/logo-symbol.png" alt=""/> COHERENCE</div>
+    <div class="st eyebrow">What It Is</div>
+    <h2 class="st">A festival with real work at its center.</h2>
+    <p class="st sub">Part celebration, part ceremony, part summit. A curated gathering where the optimists of consciousness, technology, art, and regeneration come to enjoy life together and leave with real projects and businesses they can get involved in, building the world that is arriving.</p>
+    <div class="st vs">
+      <div class="side them">
+        <h3>What it is not</h3>
+        <ul>
+          <li>A music festival with talks bolted on</li>
+          <li>A transactional networking conference</li>
+          <li>A doom-and-gloom debate about AI</li>
+          <li>A crowd that disperses when it ends</li>
+        </ul>
+      </div>
+      <div class="side us">
+        <h3>What it is</h3>
+        <ul>
+          <li><b>Connect</b> with lifelong partners, personal and business</li>
+          <li><b>Heal</b> through transformational ceremony, movement practices, bio-hacking, and the bath house</li>
+          <li><b>Collaborate</b> on what we build for the post-AI world</li>
+          <li><b>Celebrate</b> with music, great food, and play</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sec">02 · Concept</div><div class="fd">Investment Deck</div>
+  </section>
+
+  <!-- 04 · four pillars -->
+  <section class="slide">
+    <div class="chip"><img src="media/logo-symbol.png" alt=""/> COHERENCE</div>
+    <div class="st eyebrow">A Day at Coherence</div>
+    <h2 class="st">Four movements, every day.</h2>
+    <div class="st pillars">
+      <div class="pillar">
+        <svg class="ring" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="6" stroke="#c9926a" stroke-width="2"/></svg>
+        <h3>Move</h3><p>Yoga and movement at 9:00 AM. Morning dance party at 10:00 on the Amphitheater Stage with partners Daybreaker and Bass Church.</p>
+      </div>
+      <div class="pillar">
+        <svg class="ring" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="6" stroke="#c9926a" stroke-width="2"/><circle cx="32" cy="28" r="14" stroke="#c9926a" stroke-width="1.6" stroke-opacity=".7"/></svg>
+        <h3>Vision</h3><p>One keynote speaker and panel a day on the day's theme, then a full hour to digest and converse over lunch in The Grove.</p>
+      </div>
+      <div class="pillar">
+        <svg class="ring" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="6" stroke="#c9926a" stroke-width="2"/><circle cx="32" cy="28" r="14" stroke="#c9926a" stroke-width="1.6" stroke-opacity=".7"/><circle cx="28" cy="32" r="22" stroke="#c9926a" stroke-width="1.3" stroke-opacity=".5"/></svg>
+        <h3>Go Inward</h3><p>An afternoon ceremony in The Ceremony Garden next to the spring, with the day's deep transformational practice woven in.</p>
+      </div>
+      <div class="pillar">
+        <svg class="ring" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="6" stroke="#c9926a" stroke-width="2"/><circle cx="32" cy="28" r="14" stroke="#c9926a" stroke-width="1.6" stroke-opacity=".7"/><circle cx="28" cy="32" r="22" stroke="#c9926a" stroke-width="1.3" stroke-opacity=".5"/><circle cx="30" cy="30" r="28.5" stroke="#c9926a" stroke-width="1.5"/></svg>
+        <h3>Celebrate</h3><p>Dinner together, then music on the river until midnight. AWARË, Poranguí, Snow Raven, MOSE.</p>
+      </div>
+    </div>
+    <div class="sec">03 · Pillars</div><div class="fd">Investment Deck</div>
+  </section>
+
+  <!-- 05 · who converges -->
+  <section class="slide">
+    <div class="chip"><img src="media/logo-symbol.png" alt=""/> COHERENCE</div>
+    <div class="st eyebrow">The Audience</div>
+    <h2 class="st" style="max-width:26ch">The world's top optimists, in one place.</h2>
+    <div class="st cols3">
+      <div class="col"><h3>Contemplatives</h3>
+        <ul><li>Meditators and spiritual teachers</li><li>Consciousness researchers</li><li>Healers and somatic practitioners</li><li>Ceremony holders</li></ul></div>
+      <div class="col"><h3>Technologists</h3>
+        <ul><li>AI researchers and founders</li><li>Engineers building the systems</li><li>Biohackers and longevity builders</li><li>Crypto and open-finance builders</li></ul></div>
+      <div class="col"><h3>Creatives <span class="amp">&amp;</span> Stewards</h3>
+        <ul><li>Musicians, artists, filmmakers</li><li>Venture and impact funds</li><li>Policy and political leaders</li><li>Water protectors and regenerators</li></ul></div>
+    </div>
+    <div class="st meets">The meditators meet the AI builders. The healers meet the funds. Everyone meets the people that will accelerate our future's highest timeline.</div>
+    <div class="sec">04 · Audience</div><div class="fd">Investment Deck</div>
+  </section>
+
+  <!-- 06 · market whitespace -->
+  <section class="slide light">
+    <div class="chip"><img src="media/logo-symbol.png" alt=""/> COHERENCE</div>
+    <div class="st eyebrow">The Question</div>
+    <h2 class="st">What will humans do when goods and services are nearly free?</h2>
+    <p class="st sub">AI is accelerating the evolution of society, and human culture will have to adapt. We believe it can be the best thing that ever happens to humanity, if we decide what it is for. <strong>More time with family. More creativity. Deeper human connection, more celebration, play, and time in nature.</strong> COHERENCE is where we predict what is coming and start building the places people will land.</p>
+    <div class="st statrow">
+      <div class="stat"><div class="n">20,000+</div><div class="l">Conscious builders in Austin metro alone</div></div>
+      <div class="stat"><div class="n">First</div><div class="l">Major gathering in consciousness &times; tech</div></div>
+      <div class="stat"><div class="n">Annual</div><div class="l">Category-defining if executed properly</div></div>
+    </div>
+    <div class="sec">05 · Market</div><div class="fd">Investment Deck</div>
+  </section>
+
+  <!-- 07 · the land -->
+  <section class="slide photo">
+    <div class="bg" style="background-image:url('media/venue-river.jpg')"></div>
+    <div class="shade" style="background:linear-gradient(90deg,rgba(23,16,9,.88) 0%,rgba(23,16,9,.62) 55%,rgba(23,16,9,.3) 100%)"></div>
+    <div class="chip"><img src="media/logo-symbol.png" alt=""/> COHERENCE</div>
+    <div style="max-width:58%">
+      <div class="st eyebrow">The Place</div>
+      <h2 class="st">Carson Creek Ranch.</h2>
+      <div class="st poem" style="font-size:clamp(1.1rem,2.3cqw,2rem);margin-top:.5em">Held by one family on this river <em>since 1851.</em></div>
+      <ul class="st blist">
+        <li><b>60 acres</b> on the banks of the Colorado River, in Austin, TX</li>
+        <li>A <b>Texas Century Ranch</b>, stewarded by the same family for 150 years</li>
+        <li><b>Amphitheater Stage</b> on the water, under old pecans: music, yoga, keynotes</li>
+        <li><b>The Ceremony Garden</b> next to the property's spring for the daily ceremonies and deep practice</li>
+        <li><b>The Grove</b>: a river trail of food vendors, artisans, biohacking, lounges, and The Bath House</li>
+        <li>Held on the <b>Spring Equinox</b>, through the <b>Full Moon</b>, closing on <b>World Water Day</b></li>
+      </ul>
+    </div>
+    <div class="credit">Colorado River at Montopolis, Austin · photo Larry D. Moore, CC BY 4.0</div>
+    <div class="sec">06 · Place</div><div class="fd">Investment Deck</div>
+  </section>
+
+  <!-- 08 · access -->
+  <section class="slide light">
+    <div class="chip"><img src="media/logo-symbol.png" alt=""/> COHERENCE</div>
+    <div class="st eyebrow">Access</div>
+    <h2 class="st">A destination gathering without the journey.</h2>
+    <p class="st sub">Most transformational gatherings ask for two travel days before anyone arrives. Carson Creek Ranch is <strong>15 minutes from downtown Austin and 5 minutes from Austin-Bergstrom International airport</strong>, so a guest can land and be on the land the same hour. Lower friction, higher conversion, national reach.</p>
+    <p class="st sub">Zero travel days: fly in the morning, be in ceremony that afternoon. Nonstop flights from both coasts, most under four hours, into the conscious-builder hub itself.</p>
+    <div class="sec">07 · Access</div><div class="fd">Investment Deck</div>
+  </section>
+
+  <!-- 08 · the days -->
+  <section class="slide">
+    <div class="chip"><img src="media/logo-symbol.png" alt=""/> COHERENCE</div>
+    <div class="st eyebrow">The Four Days</div>
+    <h2 class="st" style="white-space:nowrap;font-size:clamp(1.6rem,4.6cqw,4.2rem)">One theme a day. One arc across four.</h2>
+    <div class="st days" style="grid-template-columns:repeat(4,1fr)">
+      <div class="day"><div class="dn">Friday · Arrival</div><h3>Opening</h3>
+        <p>Land, find your people in the Grove. Opening Ceremony at 6, dinner, then AWARË opens the music on the river.</p></div>
+      <div class="day"><div class="dn">Saturday · Equinox</div><h3>Consciousness after the AI Revolution</h3>
+        <p>Daybreaker party at dawn. Keynote <span class="amp">&amp;</span> panel on conscious AI and the future of humanity after universal abundance. Future Timeline Ceremony. Poranguí headlines.</p></div>
+      <div class="day"><div class="dn">Sunday</div><h3>Consciousness in Financial <span class="amp">&amp;</span> Political Systems</h3>
+        <p>Bass Church party at dawn. Keynote <span class="amp">&amp;</span> panel: founders, funds and organizers of the new systems of finance and governance. Illuminate the Shadow Systems Ceremony. Snow Raven and MOSE headline.</p></div>
+      <div class="day"><div class="dn">Monday · Full Moon · World Water Day</div><h3>World Water Day</h3>
+        <p>A slow day to foster connection. The Bath House guided inner-water cleanse. Keynote <span class="amp">&amp;</span> panel on the technology of water, the Love Water Ceremony, closing dinner and acoustic dance set.</p></div>
+    </div>
+    <div class="st eyebrow" style="margin-top:clamp(18px,3cqh,32px);margin-bottom:0;color:var(--cream)">Four ceremonies · Three keynote <span class="amp">&amp;</span> panel days · Six headline acts on the river</div>
+    <div class="sec">08 · Program</div><div class="fd">Investment Deck</div>
+  </section>
+
+  <!-- 09 · programming architecture -->
+  <section class="slide light">
+    <div class="chip"><img src="media/logo-symbol.png" alt=""/> COHERENCE</div>
+    <div class="st eyebrow">The Lineup</div>
+    <h2 class="st">Three layers of curation.</h2>
+    <div class="st layers">
+      <div class="layer"><div class="n">5</div><h3>Keynote Visionaries</h3><p>Frame the conversation. Bridge science, consciousness, and human development.</p></div>
+      <div class="layer"><div class="n">50</div><h3>Working Facilitators</h3><p>Run the workshops, circles, and meditations across nine curated tracks.</p></div>
+      <div class="layer"><div class="n">15+</div><h3>Artists</h3><p>Acoustic sets, ambient DJs, live band, projection and installation art.</p></div>
+    </div>
+    <div class="st tracks">
+      <div class="track"><span class="dot" style="background:var(--rose)"></span><span class="t">Meditation &amp; Mindfulness</span><span class="c">8</span></div>
+      <div class="track"><span class="dot" style="background:var(--euca)"></span><span class="t">Spiritual Technology</span><span class="c">8</span></div>
+      <div class="track"><span class="dot" style="background:var(--sage)"></span><span class="t">Somatic &amp; Body Work</span><span class="c">6</span></div>
+      <div class="track"><span class="dot" style="background:var(--wine)"></span><span class="t">Arts &amp; Creativity</span><span class="c">6</span></div>
+      <div class="track"><span class="dot" style="background:var(--olive)"></span><span class="t">Business &amp; Collaboration</span><span class="c">5</span></div>
+      <div class="track"><span class="dot" style="background:var(--clay)"></span><span class="t">Relationship &amp; Connection</span><span class="c">5</span></div>
+      <div class="track"><span class="dot" style="background:var(--umber-c)"></span><span class="t">Indigenous Wisdom</span><span class="c">4</span></div>
+      <div class="track"><span class="dot" style="background:var(--ochre)"></span><span class="t">Healing Modalities</span><span class="c">4</span></div>
+      <div class="track"><span class="dot" style="background:var(--sand)"></span><span class="t">Philosophy &amp; Worldview</span><span class="c">4</span></div>
+    </div>
+    <div class="sec">09 · Lineup</div><div class="fd">Investment Deck</div>
+  </section>
+
+  <!-- 10 · community engine -->
+  <section class="slide">
+    <div class="chip"><img src="media/logo-symbol.png" alt=""/> COHERENCE</div>
+    <div class="st eyebrow">The Engine</div>
+    <h2 class="st">The gathering is days. The community is the product.</h2>
+    <div class="st arc">
+      <div class="phase"><div class="pn">Before · 60 days</div><h3>Pods form</h3>
+        <ul><li>Every attendee joins a pod of 10 to 15</li><li>Cohorts bond online before arrival</li><li>Intention setting and storytelling</li></ul></div>
+      <div class="phase"><div class="pn">During</div><h3>Belonging rituals</h3>
+        <ul><li>Pods share meals and bonfire time</li><li>Affinity groups self-organize</li><li>Project circles before departure</li></ul></div>
+      <div class="phase"><div class="pn">After · Ongoing</div><h3>Momentum holds</h3>
+        <ul><li>Monthly cohort calls, regional meetups</li><li>Collaboration and mentorship pairings</li><li>Target: 45%+ repeat attendance</li></ul></div>
+    </div>
+    <div class="sec">10 · Community</div><div class="fd">Investment Deck</div>
+  </section>
+
+  <!-- 11 · business model -->
+  <section class="slide light">
+    <div class="chip"><img src="media/logo-symbol.png" alt=""/> COHERENCE</div>
+    <div class="st eyebrow">Business Model</div>
+    <h2 class="st">Priced for belonging, built for margin.</h2>
+    <div class="st split" style="align-items:start;gap:clamp(20px,3cqw,48px)">
+      <table>
+        <tr><th>Tier</th><th>Price</th><th style="text-align:right">Mix</th></tr>
+        <tr><td><b>Scholarship</b></td><td class="num">$250 to $400</td><td style="text-align:right">8%</td></tr>
+        <tr><td><b>Early Bird</b> · limited 100</td><td class="num">$599</td><td style="text-align:right">12%</td></tr>
+        <tr><td><b>Standard</b></td><td class="num">$799</td><td style="text-align:right">65%</td></tr>
+        <tr><td><b>Premium</b> · glamping</td><td class="num">$1,199</td><td style="text-align:right">12%</td></tr>
+        <tr><td><b>VIP</b> · keynote access</td><td class="num">$2,000</td><td style="text-align:right">3%</td></tr>
+      </table>
+      <table>
+        <tr><th>Revenue · 650 attendees</th><th style="text-align:right"></th></tr>
+        <tr><td>Ticket revenue</td><td class="num" style="text-align:right">$535,670</td></tr>
+        <tr><td>Sponsorships · $4K to $25K packages</td><td class="num" style="text-align:right">$40,000</td></tr>
+        <tr><td>Vendors, merch, post-event course</td><td class="num" style="text-align:right">$16,000</td></tr>
+        <tr class="total"><td>Gross revenue</td><td class="num" style="text-align:right">$591,670</td></tr>
+      </table>
+    </div>
+    <div class="sec">11 · Model</div><div class="fd">Investment Deck</div>
+  </section>
+
+  <!-- 12 · financials -->
+  <section class="slide light">
+    <div class="chip"><img src="media/logo-symbol.png" alt=""/> COHERENCE</div>
+    <div class="st eyebrow">Financials · Year One</div>
+    <h2 class="st">Profitable at the first gathering.</h2>
+    <div class="st split" style="align-items:start;gap:clamp(20px,3cqw,48px)">
+      <table>
+        <tr><th>Cost structure</th><th style="text-align:right"></th></tr>
+        <tr><td>Venue &amp; logistics</td><td class="num" style="text-align:right">$63K to $105K</td></tr>
+        <tr><td>Talent &amp; programming</td><td class="num" style="text-align:right">$125K</td></tr>
+        <tr><td>Hospitality &amp; catering</td><td class="num" style="text-align:right">$88K to $138K</td></tr>
+        <tr><td>Marketing, ops &amp; contingency</td><td class="num" style="text-align:right">$76K to $119K</td></tr>
+        <tr class="total"><td>Total budget</td><td class="num" style="text-align:right">$400K to $500K</td></tr>
+      </table>
+      <div>
+        <div class="statrow" style="margin-top:clamp(16px,3.2cqh,34px);gap:clamp(18px,3cqw,44px)">
+          <div class="stat"><div class="n">~$147K</div><div class="l">Net margin at midpoint · 25%</div></div>
+          <div class="stat"><div class="n">~380</div><div class="l">Breakeven attendance</div></div>
+        </div>
+        <ul class="blist" style="margin-top:clamp(14px,2.6cqh,26px)">
+          <li><b>Conservative case:</b> $100K to $150K net</li>
+          <li><b>Optimistic case:</b> $200K to $250K net</li>
+          <li>Premium and VIP tiers are uncapped, high margin</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sec">12 · Financials</div><div class="fd">Investment Deck</div>
+  </section>
+
+  <!-- 13 · moats -->
+  <section class="slide">
+    <div class="chip"><img src="media/logo-symbol.png" alt=""/> COHERENCE</div>
+    <div class="st eyebrow">Defensibility</div>
+    <h2 class="st">Why this holds.</h2>
+    <ul class="st blist" style="max-width:56ch">
+      <li><b>Location lock:</b> exclusive multi-year partnership with Carson Creek Ranch</li>
+      <li><b>Community lock:</b> pods, cohorts, and post-event engagement drive repeat attendance</li>
+      <li><b>Founder brand:</b> the team behind Texas Eclipse and Iceland Eclipse, delivered at scale</li>
+      <li><b>Institutional roots:</b> Austin's tech, healing arts, DAO, and university communities</li>
+      <li><b>Timing:</b> first major gathering in the consciousness &times; technology space</li>
+    </ul>
+    <div class="sec">13 · Moats</div><div class="fd">Investment Deck</div>
+  </section>
+
+  <!-- 14 · lineage -->
+  <section class="slide">
+    <div class="chip"><img src="media/logo-symbol.png" alt=""/> COHERENCE</div>
+    <div class="st eyebrow">Lineage</div>
+    <h2 class="st">Produced by IMXP <span class="amp">&amp;</span> UNIFY.</h2>
+    <p class="st sub">COHERENCE brings together IMXP and UNIFY: collaborators who have already worked side by side at Texas Eclipse and Iceland Eclipse, bringing ceremony to scale across two of the decade's most significant celestial gatherings. The event playbook, the speaker network, and the community platform already exist.</p>
+    <div class="st statrow">
+      <div class="stat"><div class="n">38,000</div><div class="l">Texas Eclipse attendees · 2024</div></div>
+      <div class="stat"><div class="n">Delivered</div><div class="l">Iceland Eclipse · August 2026</div></div>
+      <div class="stat"><div class="n">2.8M+</div><div class="l">Global community · 70+ countries</div></div>
+    </div>
+    <div class="sec">14 · Team</div><div class="fd">Investment Deck</div>
+  </section>
+
+  <!-- 15 · roadmap -->
+  <section class="slide light">
+    <div class="chip"><img src="media/logo-symbol.png" alt=""/> COHERENCE</div>
+    <div class="st eyebrow">Roadmap</div>
+    <h2 class="st">Year one is the seed.</h2>
+    <div class="st arc" style="margin-top:clamp(22px,4.4cqh,46px)">
+      <div class="phase" style="border-top-color:var(--copper-deep)"><div class="pn" style="color:var(--copper-deep)">2027</div><h3 style="color:var(--ink)">Inaugural gathering</h3>
+        <p style="color:var(--ink-dim)">650 attendees at Carson Creek Ranch. Establish the brand, the pods, and the annual rhythm. Profitable in year one.</p></div>
+      <div class="phase" style="border-top-color:var(--copper-deep)"><div class="pn" style="color:var(--copper-deep)">2028</div><h3 style="color:var(--ink)">Evolution, not reinvention</h3>
+        <p style="color:var(--ink-dim)">Grow attendance on a proven container. Deepen institutional partnerships and sponsorships. Alumni return as mentors.</p></div>
+      <div class="phase" style="border-top-color:var(--ochre)"><div class="pn" style="color:var(--copper-deep)">2029+</div><h3 style="color:var(--ink)">The coherence network</h3>
+        <p style="color:var(--ink-dim)">Regional chapters, online experiences, and a year-round community platform on IMXP infrastructure.</p></div>
+    </div>
+    <div class="sec">15 · Roadmap</div><div class="fd">Investment Deck</div>
+  </section>
+
+  <!-- 16 · close -->
+  <section class="slide photo center">
+    <div class="bg"></div><div class="shade"></div>
+    <img class="coverlogo" src="media/logo-symbol.png" alt="Coherence" />
+    <div class="st poem" style="font-size:clamp(1.9rem,5.2cqw,4.6rem)">The optimists are gathering. <em>The future is bright.</em></div>
+    <p class="st sub" style="max-width:52ch">Come together to connect, heal, and collaborate on the future of humanity. Join us in building the place where the future lands.</p>
+    <div class="st contact">Mitch Morales · <a href="mailto:mitch@im-xp.com">mitch@im-xp.com</a><br>Patrick Kronfli · <a href="mailto:patrick@unify.org">patrick@unify.org</a></div>
+    <div class="fd">Investment Deck</div>
+  </section>
+
+</div></div>
+
+<div id="ctr">01 / 17</div>
+<div id="dots"></div>
+<div class="arrows"><button id="prev" aria-label="Previous">‹</button><button id="next" aria-label="Next">›</button></div>
+
+<!-- email gate: styled after coherencegathering.com's invitation flow -->
+<div id="gate">
+  <div class="card">
+    <img class="gmark" src="media/logo-symbol.png" alt="Coherence" />
+    <div class="gsub">Investment Deck</div>
+    <h2>The future is bright.</h2>
+    <p>Enter your details to view the deck.</p>
+    <form id="gateForm" novalidate>
+      <input id="gateName" type="text" placeholder="Full name" autocomplete="name" />
+      <input id="gateEmail" type="email" placeholder="your@email.com" autocomplete="email" />
+      <div class="err" id="gateErr"></div>
+      <button type="submit" id="gateBtn">View Deck</button>
+    </form>
+    <div class="fine">Details are kept private and used only to send updates.</div>
+  </div>
+</div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+const dots=document.getElementById('dots');
+const ctr=document.getElementById('ctr');
+const mandala=document.getElementById('mandala');
+const pad=n=>(n<10?'0':'')+n;
+let i=0;
+slides.forEach((_,n)=>{const b=document.createElement('button');b.setAttribute('aria-label','Slide '+(n+1));
+  b.onclick=()=>go(n);dots.appendChild(b);});
+function go(n){
+  i=Math.max(0,Math.min(slides.length-1,n));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+  [...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i));
+  ctr.textContent=pad(i+1)+' / '+pad(slides.length);
+  /* the rings turn and grow as the story advances */
+  const t=i/(slides.length-1);
+  mandala.style.transform='rotate('+(t*90)+'deg) scale('+(1+t*0.22)+')';
+  if(location.hash!=='#'+(i+1))history.replaceState(null,'','#'+(i+1));
+}
+const next=()=>go(i+1), prev=()=>go(i-1);
+document.getElementById('next').onclick=next;
+document.getElementById('prev').onclick=prev;
+addEventListener('keydown',e=>{
+  {const g=document.getElementById('gate');if(g&&!g.classList.contains('hide'))return;}  /* gate open: keys belong to the form */
+  if(['ArrowRight','PageDown',' '].includes(e.key)){next();e.preventDefault();}
+  if(['ArrowLeft','PageUp'].includes(e.key)){prev();e.preventDefault();}
+  if(e.key==='Home')go(0); if(e.key==='End')go(slides.length-1);
+});
+let sx=0,sy=0;
+addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+addEventListener('touchend',e=>{const t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;
+  if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)){dx<0?next():prev();}},{passive:true});
+let wl=0;
+addEventListener('wheel',e=>{const t=Date.now();if(t-wl<720)return;
+  if(Math.abs(e.deltaY)>28||Math.abs(e.deltaX)>28){wl=t;(e.deltaY+e.deltaX)>0?next():prev();}},{passive:true});
+const start=parseInt((location.hash||'').replace('#',''),10);
+go(start>=1&&start<=slides.length?start-1:0);
+
+/* email gate: captures name + email into Supabase (australasia-eclipse-2028 project,
+   isolated coherence_deck_leads table, insert-only RLS), same pattern as MSF + IMXP gates */
+(function(){
+  const KEY='coherence_deck_access';
+  const SUPA_URL='https://qmxhsendoepqeyeolzil.supabase.co';
+  const SUPA_KEY='sb_publishable_qU4HH0buJWQW3_RJk3QlYg_5r84ZfdP';
+  const gate=document.getElementById('gate');
+  const EMAIL_KEY=KEY+'_email';
+
+  /* View-duration tracking: active-tab time per visit, recorded through the
+     deck_view_beat() database function into coherence_deck_views (separate
+     from the lead-capture gate, so it never touches the leads data). Email is
+     attached when known -- just submitted, or remembered from this browser --
+     otherwise the visit is tracked anonymously. Uses fetch(keepalive) rather
+     than sendBeacon on unload because Supabase's REST API needs the
+     apikey/Authorization headers, which sendBeacon can't send. */
+  function trackViews(email){
+    try{
+      const SID=(crypto.randomUUID?crypto.randomUUID():(Date.now()+'-'+Math.random().toString(16).slice(2)));
+      let activeMs=0, lastTick=(document.visibilityState==='visible'?Date.now():null), lastSent=-1;
+      function tick(){if(lastTick!==null){activeMs+=Math.min(Date.now()-lastTick,60000);lastTick=Date.now();}}
+      document.addEventListener('visibilitychange',()=>{tick();lastTick=document.visibilityState==='visible'?Date.now():null;if(document.visibilityState==='hidden')send(true);});
+      function send(keepalive){
+        tick();
+        const seconds=Math.round(activeMs/1000);
+        if(seconds<3||seconds===lastSent)return;
+        lastSent=seconds;
+        fetch(SUPA_URL+'/rest/v1/rpc/deck_view_beat',{
+          method:'POST', keepalive:!!keepalive,
+          headers:{'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY,'Content-Type':'application/json'},
+          body:JSON.stringify({p_deck:'coherence_investment',p_session_id:SID,p_email:email||null,p_seconds:seconds})
+        }).catch(()=>{});
+      }
+      setInterval(()=>send(false),20000);
+      addEventListener('pagehide',()=>send(true));
+    }catch(_){}
+  }
+  let seen=false;try{seen=!!localStorage.getItem(KEY);}catch(_){}
+  let saved=null;try{saved=localStorage.getItem(EMAIL_KEY);}catch(_){}
+  /* unlocked before emails were saved: ask once, so every recorded view has an email address */
+  const returning=seen&&!saved;
+  if(seen&&saved){gate.classList.add('hide');trackViews(saved);return;}
+  const form=document.getElementById('gateForm');
+  const nameEl=document.getElementById('gateName');
+  const email=document.getElementById('gateEmail');
+  const err=document.getElementById('gateErr');
+  const btn=document.getElementById('gateBtn');
+  const re=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if(returning){const h=gate.querySelector('h2'),p=gate.querySelector('p');if(h)h.textContent='Welcome back.';if(p)p.textContent='Please confirm your email to continue.';nameEl.style.display='none';btn.textContent='Continue';}
+
+  var opened=false;
+  function unlock(viewerEmail){
+    if(opened)return;opened=true;
+    try{localStorage.setItem(KEY,'1');if(viewerEmail)localStorage.setItem(EMAIL_KEY,viewerEmail);}catch(_){}
+    gate.classList.add('hide');
+    trackViews(viewerEmail);
+  }
+
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const v=email.value.trim();
+    const n=nameEl.value.trim();
+    if(!re.test(v)){err.textContent='Please enter a valid email address.';email.focus();return;}
+    err.textContent='';
+    btn.disabled=true; btn.textContent='Opening…';
+    if(returning){unlock(v);return;}   /* already a lead: just attach the email to this visit */
+    setTimeout(()=>unlock(v),4000);   /* a stalled request must not trap the viewer */
+    const payload={email:v, name:n||null, source:'coherence-investment-gate', referrer:document.referrer||null, user_agent:navigator.userAgent};
+    fetch(SUPA_URL+'/rest/v1/coherence_deck_leads',{
+      method:'POST',
+      headers:{'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY,'Content-Type':'application/json','Prefer':'return=minimal'},
+      body:JSON.stringify(payload)
+    }).then(()=>unlock(v)).catch(()=>unlock(v));   /* never trap a real viewer behind a network hiccup */
+  });
+  email.focus();
+})();
+</script>
+</body>
+</html>
