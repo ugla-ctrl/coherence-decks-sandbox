@@ -2,7 +2,7 @@
 
 A safe place to restyle and reformat the Coherence **Investment** and **Partnerships** decks so they look like the **Info** deck, before anything goes live.
 
-- Sandbox link (for review): see the repo's GitHub Pages address, landing page `index.html`
+- Sandbox link (for review): https://ugla-ctrl.github.io/coherence-decks-sandbox/
 - Live decks (do not edit from here):
   - Info (style reference): https://info.coherenceatx.com
   - Investment: https://investment.coherenceatx.com (repo `ugla-ctrl/coherence-deck`, branch `master`)
